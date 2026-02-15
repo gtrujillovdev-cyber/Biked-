@@ -50,9 +50,9 @@
                 "color": "Satin Carbon/Viavi Cyn Cyan",
                 "price_eur": 14000,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/3/3e/Remco_Evenepoel_LBL_2022.jpg",
                     "https://assets.specialized.com/i/specialized/94924-00_TARMAC-SL8-SW-DURA-ACE-DI2-SATIN-CARBON-VIAVI-CYN-CYAN-VIAVI-SILVER-MAGENTA-HLZ-GRN-WHT-IMP_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
-                    "https://upload.wikimedia.org/wikipedia/commons/e/e3/Quickstep_specialized_2007.jpg",
-                    "https://upload.wikimedia.org/wikipedia/commons/b/ba/Specialized_Rennrad.jpg"
+                    "https://upload.wikimedia.org/wikipedia/commons/e/e3/Quickstep_specialized_2007.jpg"
                 ],
                 "specs": {
                     "groupset": "Shimano Dura-Ace R9270 Di2",
@@ -72,6 +72,7 @@
                 "color": "Gloss Red / White",
                 "price_eur": 14200,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/3/3e/Remco_Evenepoel_LBL_2022.jpg",
                     "https://assets.specialized.com/i/specialized/94924-00_TARMAC-SL8-SW-DURA-ACE-DI2-SATIN-CARBON-VIAVI-CYN-CYAN-VIAVI-SILVER-MAGENTA-HLZ-GRN-WHT-IMP_HERO?bg=rgb(241,241,241)&w=1600&h=900&fmt=auto",
                     "https://upload.wikimedia.org/wikipedia/commons/e/e3/Quickstep_specialized_2007.jpg"
                 ],
@@ -131,6 +132,7 @@
                 "color": "Stealth",
                 "price_eur": 9499,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/8/87/Mathieu_van_der_Poel_Paris-Roubaix_2023.jpg",
                     "https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dw0c0e0e98/images/full/full_2024_/2024_/full_2024_aeroad-cfr-di2_3967_R108_P03_01.jpg",
                     "https://upload.wikimedia.org/wikipedia/commons/0/02/TdF_2022_Castelnau-Magnoac_54_-_V%C3%A9los_Canyon.jpg"
                 ],
@@ -151,6 +153,7 @@
                 "color": "Alpecin Blue",
                 "price_eur": 9999,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/8/87/Mathieu_van_der_Poel_Paris-Roubaix_2023.jpg",
                     "https://www.canyon.com/dw/image/v2/BCML_PRD/on/demandware.static/-/Sites-canyon-master/default/dw0c0e0e98/images/full/full_2024_/2024_/full_2024_aeroad-cfr-di2_3967_R108_P03_01.jpg",
                     "https://upload.wikimedia.org/wikipedia/commons/0/02/TdF_2022_Castelnau-Magnoac_54_-_V%C3%A9los_Canyon.jpg"
                 ],
@@ -210,8 +213,8 @@
                 "color": "Lidl-Trek",
                 "price_eur": 12500,
                 "images": [
-                    "https://media.trekbikes.com/image/upload/f_auto,fl_progressive,h_600,q_auto,w_1200/MadoneSLR9_24_42358_A_Portrait",
                     "https://upload.wikimedia.org/wikipedia/commons/2/22/2024_AGR_start_Lidl-Trek_bike_Longo_Borghini.jpg",
+                    "https://media.trekbikes.com/image/upload/f_auto,fl_progressive,h_600,q_auto,w_1200/MadoneSLR9_24_42358_A_Portrait",
                     "https://upload.wikimedia.org/wikipedia/commons/2/25/2024_AGR_start_Lidl-Trek_bikes.jpg"
                 ],
                 "specs": {
@@ -270,9 +273,9 @@
                 "color": "Nebula Green",
                 "price_eur": 14500,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Thomas_Pidcock_Amstel_Gold_Race_2024.jpg/1200px-Thomas_Pidcock_Amstel_Gold_Race_2024.jpg",
                     "https://pinarello.com/global/en/images/bikes/dogma-f/dogma-f-luxter-red-gold-side.jpg",
-                    "https://upload.wikimedia.org/wikipedia/commons/f/f2/Dogma_F10_Disk_and_the_F_is_for_FRESH%21%21_-dogmaf10_-pinarello_-roadbike_-baaw.jpg",
-                    "https://upload.wikimedia.org/wikipedia/commons/3/37/Pinarello_Dogma_F_Super_Record_EPS.jpg"
+                    "https://upload.wikimedia.org/wikipedia/commons/f/f2/Dogma_F10_Disk_and_the_F_is_for_FRESH%21%21_-dogmaf10_-pinarello_-roadbike_-baaw.jpg"
                 ],
                 "specs": {
                     "groupset": "Campagnolo Super Record Wireless",
@@ -323,9 +326,9 @@
                 "color": "Burnt Pewter",
                 "price_eur": 13000,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/5/52/Neilson_Powless_Tour_de_France_2023.jpg",
                     "https://embed.widencdn.net/img/dorelrl/mz1x3e4w5f/1700px/C23_C11153U_SuperSix_EVO_LAB71_Pewter_Side.png",
-                    "https://upload.wikimedia.org/wikipedia/commons/d/df/Cannondale-SM2000-.jpg",
-                    "https://upload.wikimedia.org/wikipedia/commons/d/d3/Cannondale_CAAD10.jpg"
+                    "https://upload.wikimedia.org/wikipedia/commons/d/df/Cannondale-SM2000-.jpg"
                 ],
                 "specs": {
                     "groupset": "Shimano Dura-Ace Di2",
@@ -376,6 +379,7 @@
                 "color": "Blue Dragonfly",
                 "price_eur": 11000,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/c/c9/Michael_Matthews_Tour_de_France_2022.jpg",
                     "https://images.giant-bicycles.com/b_white,c_pad,h_650,q_80,w_850/my24/t-023_propel_advanced_sl_0_color_a_black_moonstone.jpg",
                     "https://upload.wikimedia.org/wikipedia/commons/2/28/Bicycle_crankset_Shimano_105_R7000_%28chainring_50-34%2C_length_172.5mm%2C_11_speed%29.jpg"
                 ],
@@ -428,6 +432,7 @@
                 "color": "Five Black",
                 "price_eur": 12000,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Jonas_Vingegaard_Tour_de_France_2023_Stage_17.jpg/1200px-Jonas_Vingegaard_Tour_de_France_2023_Stage_17.jpg",
                     "https://images.ctfassets.net/p0qf7j048i0q/5S5x5x5x5x5x5x5x5/Cervelo_S5_2024_Hero.jpg",
                     "https://upload.wikimedia.org/wikipedia/commons/e/e4/Cerv%C3%A9lo_S5_%282019%29_-_05.jpg"
                 ],
@@ -447,6 +452,7 @@
                 "color": "Sapphire Ice",
                 "price_eur": 9000,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Jonas_Vingegaard_Tour_de_France_2023_Stage_17.jpg/1200px-Jonas_Vingegaard_Tour_de_France_2023_Stage_17.jpg",
                     "https://images.ctfassets.net/p0qf7j048i0q/5S5x5x5x5x5x5x5x5/Cervelo_S5_2024_Hero.jpg",
                     "https://upload.wikimedia.org/wikipedia/commons/4/4b/Cerv%C3%A9lo_S5_%282019%29_-_10.jpg"
                 ],
@@ -492,6 +498,7 @@
                 "color": "MyO Custom",
                 "price_eur": 10500,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/1/18/Arnaud_De_Lie_Omloop_Het_Nieuwsblad_2024.jpg",
                     "https://www.orbea.com/img/products/product/large/L105TTCC-NO-SIDE-ORBEA-ORCA-AERO-M10iLTD.jpg",
                     "https://upload.wikimedia.org/wikipedia/commons/e/e1/Road_bike_Orbea_Orca_Aero_2020.jpg"
                 ],
@@ -537,6 +544,7 @@
                 "color": "HMX SL Black",
                 "price_eur": 13999,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d4/Romain_Bardet_Tour_de_France_2023.jpg",
                     "https://www.scott-sports.com/_ui/responsive/common/images/products/2024/290333/290333_0098939_original.jpg",
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Scott_Sports_logo.svg/2560px-Scott_Sports_logo.svg.png"
                 ],
@@ -582,6 +590,7 @@
                 "color": "Red/Black",
                 "price_eur": 12999,
                 "images": [
+                    "https://upload.wikimedia.org/wikipedia/commons/e/e4/Ben_O%27Connor_Tour_de_France_2021.jpg",
                     "https://bmc-switzerland.com/cdn/shop/files/Teammachine_SLR01_ONE_2024_Side.jpg",
                     "https://upload.wikimedia.org/wikipedia/commons/6/69/BMC_-_SLR01_teammachine_%289357491022%29.jpg"
                 ],

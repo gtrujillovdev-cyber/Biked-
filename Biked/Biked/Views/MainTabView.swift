@@ -21,6 +21,7 @@ struct MainTabView: View {
                 }
         }
         .environment(favoritesViewModel)
-        .tint(.blue) // Apple Health style blue
+        .tint(AppTheme.Colors.primary)
+        .preferredColorScheme(.dark) // Enforce Dark Mode for Premium Feel
     }
 }

@@ -5,62 +5,61 @@ struct FavoritesView: View {
     @State private var viewModel = FavoritesViewModel()
     
     var body: some View {
-        NavigationStack {
-            Group {
-                if viewModel.favoriteBikes.isEmpty {
+        NavigationView {
+            ZStack {
+                // Background
+                AppTheme.Gradients.oceanBeep
+                    .ignoresSafeArea()
+                
+                ScrollView {
                     VStack(spacing: 20) {
-                        Image(systemName: "heart.slash")
-                            .font(.system(size: 60))
-                            .foregroundColor(.gray)
-                        Text("No tienes favoritos aún")
-                            .font(.title2)
-                            .bold()
-                        Text("Tus bicicletas guardadas aparecerán aquí")
-                            .foregroundColor(.secondary)
-                    }
-                } else {
-                    List {
-                        ForEach(viewModel.favoriteBikes) { bike in
-                            NavigationLink(destination: BikeDetailView(bike: bike)) {
-                                HStack {
-                                    AsyncImage(url: bike.mainImage) { image in
-                                        image.resizable().aspectRatio(contentMode: .fit)
-                                    } placeholder: {
-                                        Color.gray.opacity(0.3)
+                        Text("Favoritos")
+                            .font(AppTheme.Fonts.titleLarge)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal)
+                            .padding(.top, 20)
+                        
+                        if viewModel.favoriteBikes.isEmpty {
+                            VStack(spacing: 20) {
+                                Image(systemName: "heart.slash")
+                                    .font(.system(size: 60))
+                                    .foregroundColor(AppTheme.Colors.accent.opacity(0.5))
+                                    .padding(.top, 50)
+                                
+                                Text("No tienes favoritos aún")
+                                    .font(AppTheme.Fonts.headline)
+                                    .foregroundColor(.white)
+                                
+                                Text("Tus bicicletas guardadas aparecerán aquí")
+                                    .font(AppTheme.Fonts.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                        } else {
+                            LazyVStack(spacing: 15) {
+                                ForEach(viewModel.favoriteBikes) { bike in
+                                    NavigationLink(destination: BikeDetailView(bike: bike)) {
+                                        ExploreBikeCard(bike: bike) // Reuse the card from ExploreView
                                     }
-                                    .frame(width: 80, height: 60)
-                                    .cornerRadius(8)
-                                    
-                                    VStack(alignment: .leading) {
-                                        Text(bike.model)
-                                            .font(.headline)
-                                        Text(bike.brand)
-                                            .font(.caption)
-                                            .foregroundColor(.secondary)
+                                    .contextMenu {
+                                        Button(role: .destructive) {
+                                            viewModel.removeFavorite(bikeId: bike.id)
+                                        } label: {
+                                            Label("Eliminar", systemImage: "trash")
+                                        }
                                     }
-                                    
-                                    Spacer()
-                                    
-                                    Text(bike.priceRange)
-                                        .font(.caption)
-                                        .bold()
-                                        .foregroundColor(.blue)
                                 }
                             }
+                            .padding(.horizontal)
                         }
-                        .onDelete(perform: viewModel.removeFavorite)
                     }
-                    .listStyle(.plain)
+                    .padding(.bottom, 30)
                 }
             }
-            .navigationTitle("Favoritos")
+            .navigationBarHidden(true)
             .onAppear {
                 viewModel.loadFavorites()
             }
         }
     }
-}
-
-#Preview {
-    FavoritesView()
 }
