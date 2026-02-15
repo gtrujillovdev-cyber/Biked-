@@ -5,7 +5,7 @@
         "model": "S-Works Tarmac SL8",
         "year": 2025,
         "category": "All-Rounder",
-        "description": "La bicicleta de competición más rápida del mundo.",
+        "description": "La bicicleta de competici\u00f3n m\u00e1s r\u00e1pida del mundo.",
         "geometry": [
             {
                 "size": "49",
@@ -50,9 +50,9 @@
                 "color": "Satin Carbon/Viavi Cyn Cyan",
                 "price_eur": 14000,
                 "images": [
-                    "https://placehold.co/600x400/1a1a1a/00ffff?text=Tarmac+SL8+Side",
-                    "https://placehold.co/600x400/1a1a1a/00ffff?text=Tarmac+SL8+Front",
-                    "https://placehold.co/600x400/1a1a1a/00ffff?text=Tarmac+SL8+Rear"
+                    "https://upload.wikimedia.org/wikipedia/commons/e/e3/Quickstep_specialized_2007.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/b/ba/Specialized_Rennrad.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/2/25/Specialized_bicycle.jpg"
                 ],
                 "specs": {
                     "groupset": "Shimano Dura-Ace R9270 Di2",
@@ -72,8 +72,9 @@
                 "color": "Gloss Red / White",
                 "price_eur": 14200,
                 "images": [
-                    "https://placehold.co/600x400/ff0000/ffffff?text=Tarmac+Red+Side",
-                    "https://placehold.co/600x400/ff0000/ffffff?text=Tarmac+Red+Detail"
+                    "https://upload.wikimedia.org/wikipedia/commons/e/e3/Quickstep_specialized_2007.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/b/ba/Specialized_Rennrad.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/2/25/Specialized_bicycle.jpg"
                 ],
                 "specs": {
                     "groupset": "SRAM Red eTap AXS",
@@ -93,7 +94,7 @@
         "model": "Aeroad CFR",
         "year": 2024,
         "category": "Aero",
-        "description": "Ingeniería alemana enfocada puramente en la velocidad.",
+        "description": "Ingenier\u00eda alemana enfocada puramente en la velocidad.",
         "geometry": [
             {
                 "size": "S",
@@ -131,8 +132,7 @@
                 "color": "Stealth",
                 "price_eur": 9499,
                 "images": [
-                    "https://placehold.co/600x400/000000/333333?text=Aeroad+CFR+Stealth",
-                    "https://placehold.co/600x400/000000/333333?text=Cockpit+View"
+                    "https://upload.wikimedia.org/wikipedia/commons/0/02/TdF_2022_Castelnau-Magnoac_54_-_V%C3%A9los_Canyon.jpg"
                 ],
                 "specs": {
                     "groupset": "Shimano Dura-Ace Di2",
@@ -151,8 +151,7 @@
                 "color": "Alpecin Blue",
                 "price_eur": 9999,
                 "images": [
-                    "https://placehold.co/600x400/0000cc/ffffff?text=Aeroad+MVDP",
-                    "https://placehold.co/600x400/0000cc/ffffff?text=Aeroad+MVDP+Angle"
+                    "https://upload.wikimedia.org/wikipedia/commons/0/02/TdF_2022_Castelnau-Magnoac_54_-_V%C3%A9los_Canyon.jpg"
                 ],
                 "specs": {
                     "groupset": "Shimano Dura-Ace Di2",
@@ -172,7 +171,7 @@
         "model": "Madone SLR 9 Gen 7",
         "year": 2024,
         "category": "Aero",
-        "description": "La bicicleta de carretera definitiva con tecnología IsoFlow.",
+        "description": "La bicicleta de carretera definitiva con tecnolog\u00eda IsoFlow.",
         "geometry": [
             {
                 "size": "52",
@@ -210,8 +209,9 @@
                 "color": "Lidl-Trek",
                 "price_eur": 12500,
                 "images": [
-                    "https://placehold.co/600x400/000088/ffcc00?text=Madone+Team",
-                    "https://placehold.co/600x400/000088/ffcc00?text=IsoFlow+Detail"
+                    "https://upload.wikimedia.org/wikipedia/commons/2/22/2024_AGR_start_Lidl-Trek_bike_Longo_Borghini.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/2/25/2024_AGR_start_Lidl-Trek_bikes.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/7/74/Trek_Bicycle_Shop_in_Washington_D.C..jpg"
                 ],
                 "specs": {
                     "groupset": "SRAM Red eTap AXS",
@@ -231,7 +231,7 @@
         "model": "Dogma F",
         "year": 2025,
         "category": "All-Rounder",
-        "description": "Siete de los últimos 11 Tour de Francia se han ganado en una Dogma.",
+        "description": "Siete de los \u00faltimos 11 Tour de Francia se han ganado en una Dogma.",
         "geometry": [
             {
                 "size": "515",
@@ -269,8 +269,9 @@
                 "color": "Nebula Green",
                 "price_eur": 14500,
                 "images": [
-                    "https://placehold.co/600x400/000000/00ff00?text=Dogma+F+Green",
-                    "https://placehold.co/600x400/000000/00ff00?text=Dogma+Fork"
+                    "https://upload.wikimedia.org/wikipedia/commons/f/f2/Dogma_F10_Disk_and_the_F_is_for_FRESH%21%21_-dogmaf10_-pinarello_-roadbike_-baaw.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/3/37/Pinarello_Dogma_F_Super_Record_EPS.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/b/b0/Pinarello_Dogma_F_Super_Record_EPS_1.jpg"
                 ],
                 "specs": {
                     "groupset": "Campagnolo Super Record Wireless",
@@ -290,7 +291,7 @@
         "model": "SuperSix EVO LAB71",
         "year": 2024,
         "category": "Climbing",
-        "description": "La construcción de carbono más ligera que Cannondale ha hecho jamás.",
+        "description": "La construcci\u00f3n de carbono m\u00e1s ligera que Cannondale ha hecho jam\u00e1s.",
         "geometry": [
             {
                 "size": "51",
@@ -321,7 +322,9 @@
                 "color": "Burnt Pewter",
                 "price_eur": 13000,
                 "images": [
-                    "https://placehold.co/600x400/660000/cccccc?text=LAB71+Pewter"
+                    "https://upload.wikimedia.org/wikipedia/commons/d/df/Cannondale-SM2000-.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d3/Cannondale_CAAD10.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/b/b8/Cannondale_Head_Badge_1.png"
                 ],
                 "specs": {
                     "groupset": "Shimano Dura-Ace Di2",
@@ -372,7 +375,9 @@
                 "color": "Blue Dragonfly",
                 "price_eur": 11000,
                 "images": [
-                    "https://placehold.co/600x400/0000ff/000000?text=Propel+Blue"
+                    "https://upload.wikimedia.org/wikipedia/commons/2/28/Bicycle_crankset_Shimano_105_R7000_%28chainring_50-34%2C_length_172.5mm%2C_11_speed%29.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/d/d7/Giant_Bicycle_Rental_and_Service_in_Fangliao%2C_Pingtong_Taiwan.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/0/0a/Giant_Cadex_980c_bridge.jpg"
                 ],
                 "specs": {
                     "groupset": "Shimano Dura-Ace Di2",
@@ -388,11 +393,11 @@
     },
     {
         "id": "b7",
-        "brand": "Cervélo",
+        "brand": "Cerv\u00e9lo",
         "model": "S5",
         "year": 2024,
         "category": "Aero",
-        "description": "La bici que dominó el Tour con Vingegaard y Van Aert.",
+        "description": "La bici que domin\u00f3 el Tour con Vingegaard y Van Aert.",
         "geometry": [
             {
                 "size": "51",
@@ -423,7 +428,9 @@
                 "color": "Five Black",
                 "price_eur": 12000,
                 "images": [
-                    "https://placehold.co/600x400/111111/ffffff?text=Cervelo+S5+Black"
+                    "https://upload.wikimedia.org/wikipedia/commons/e/e4/Cerv%C3%A9lo_S5_%282019%29_-_05.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/4/4b/Cerv%C3%A9lo_S5_%282019%29_-_10.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/b/b4/Cerv%C3%A9lo_S5_%282019%29_-_12.jpg"
                 ],
                 "specs": {
                     "groupset": "SRAM Red eTap AXS",
@@ -441,7 +448,9 @@
                 "color": "Sapphire Ice",
                 "price_eur": 9000,
                 "images": [
-                    "https://placehold.co/600x400/ccccff/000000?text=Cervelo+S5+Ice"
+                    "https://upload.wikimedia.org/wikipedia/commons/e/e4/Cerv%C3%A9lo_S5_%282019%29_-_05.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/4/4b/Cerv%C3%A9lo_S5_%282019%29_-_10.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/b/b4/Cerv%C3%A9lo_S5_%282019%29_-_12.jpg"
                 ],
                 "specs": {
                     "groupset": "Shimano Ultegra Di2",
@@ -461,7 +470,7 @@
         "model": "Orca Aero",
         "year": 2024,
         "category": "Aero",
-        "description": "Equilibrio perfecto entre aerodinámica, rigidez y peso.",
+        "description": "Equilibrio perfecto entre aerodin\u00e1mica, rigidez y peso.",
         "geometry": [
             {
                 "size": "53",
@@ -485,7 +494,7 @@
                 "color": "MyO Custom",
                 "price_eur": 10500,
                 "images": [
-                    "https://placehold.co/600x400/ffaa00/ffffff?text=Orca+Aero+Orange"
+                    "https://upload.wikimedia.org/wikipedia/commons/e/e1/Road_bike_Orbea_Orca_Aero_2020.jpg"
                 ],
                 "specs": {
                     "groupset": "Shimano Dura-Ace Di2",
@@ -505,7 +514,7 @@
         "model": "Foil RC",
         "year": 2024,
         "category": "Aero",
-        "description": "Ganadora de etapas en Grandes Vueltas y Clásicas.",
+        "description": "Ganadora de etapas en Grandes Vueltas y Cl\u00e1sicas.",
         "geometry": [
             {
                 "size": "54",
@@ -529,7 +538,7 @@
                 "color": "HMX SL Black",
                 "price_eur": 13999,
                 "images": [
-                    "https://placehold.co/600x400/222222/999999?text=Foil+RC+Ultimate"
+                    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Scott_Sports_logo.svg/2560px-Scott_Sports_logo.svg.png"
                 ],
                 "specs": {
                     "groupset": "SRAM Red eTap AXS",
@@ -549,7 +558,7 @@
         "model": "Teammachine SLR01",
         "year": 2024,
         "category": "All-Rounder",
-        "description": "La primera bicicleta diseñada con inteligencia artificial (ACE Technology).",
+        "description": "La primera bicicleta dise\u00f1ada con inteligencia artificial (ACE Technology).",
         "geometry": [
             {
                 "size": "54",
@@ -573,7 +582,8 @@
                 "color": "Red/Black",
                 "price_eur": 12999,
                 "images": [
-                    "https://placehold.co/600x400/aa0000/000000?text=BMC+SLR01+Red"
+                    "https://upload.wikimedia.org/wikipedia/commons/6/69/BMC_-_SLR01_teammachine_%289357491022%29.jpg",
+                    "https://upload.wikimedia.org/wikipedia/commons/1/10/TeammachineSLR01_ONE_2021.png"
                 ],
                 "specs": {
                     "groupset": "Campagnolo Super Record EPS",
