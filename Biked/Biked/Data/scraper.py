@@ -103,8 +103,21 @@ def get_initial_database():
         "Specialized", 
         "Tarmac SL8", 
         12500.0, 
-        "https://media.specialized.com/bikes/road/5758_TarmacSL8_ArticleTile_580x618_02.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Specialized_Tarmac_SL7_Expert_-_Shimano_Ultegra_Di2_-_2021.jpg/640px-Specialized_Tarmac_SL7_Expert_-_Shimano_Ultegra_Di2_-_2021.jpg", # Changed to Wikimedia for stability
         spec_geo
+    ))
+
+    # DEBUG BIKE - To verify API Fetching
+    debug_geo = [
+        Geometry("M", 550, 390, 550, 73.5, 73.0)
+    ]
+    bikes.append(Bike(
+        "debug-bike-1",
+        "API TEST",
+        "Connection Verified",
+        99999.0,
+        "https://placehold.co/600x400/png?text=API+Working", # Guaranteed to work if internet exists
+        debug_geo
     ))
 
     return bikes

@@ -134,7 +134,7 @@
         "brand": "Specialized",
         "modelName": "Tarmac SL8",
         "price": 12500.0,
-        "imageUrl": "https://media.specialized.com/bikes/road/5758_TarmacSL8_ArticleTile_580x618_02.jpg",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Specialized_Tarmac_SL7_Expert_-_Shimano_Ultegra_Di2_-_2021.jpg/640px-Specialized_Tarmac_SL7_Expert_-_Shimano_Ultegra_Di2_-_2021.jpg",
         "geometries": [
             {
                 "sizeLabel": "44",
@@ -191,6 +191,23 @@
                 "topTubeLength": 595,
                 "seatTubeAngle": 73.0,
                 "headTubeAngle": 74.0
+            }
+        ]
+    },
+    {
+        "id": "debug-bike-1",
+        "brand": "API TEST",
+        "modelName": "Connection Verified",
+        "price": 99999.0,
+        "imageUrl": "https://placehold.co/600x400/png?text=API+Working",
+        "geometries": [
+            {
+                "sizeLabel": "M",
+                "stack": 550,
+                "reach": 390,
+                "topTubeLength": 550,
+                "seatTubeAngle": 73.5,
+                "headTubeAngle": 73.0
             }
         ]
     }
