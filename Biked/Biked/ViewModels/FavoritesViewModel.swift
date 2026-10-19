@@ -1,62 +1,76 @@
 import Foundation
 import SwiftUI
 import Combine
+import SwiftData
 
 @Observable
 class FavoritesViewModel {
-    var favoriteBikeIDs: Set<String> = [] {
-        didSet {
-            saveFavorites()
-            Task { await loadFavoriteBikes() }
-        }
-    }
-    
     var favoriteBikes: [Bike] = []
-    private let saveKey = "FavoriteBikeIDs"
+
+    // Cache de todas las bicis para no hacer una petición de red en cada toggle de favorito
+    private var allBikesCache: [Bike] = []
+    private var modelContext: ModelContext?
     private let apiService: BikeAPIService
     
     init(apiService: BikeAPIService = .shared) {
         self.apiService = apiService
-        loadFavorites()
+    }
+    
+    func setContext(_ context: ModelContext) {
+        self.modelContext = context
         Task { await loadFavoriteBikes() }
     }
     
     func toggleFavorite(bikeId: String) {
-        if favoriteBikeIDs.contains(bikeId) {
-            favoriteBikeIDs.remove(bikeId)
+        guard let context = modelContext else { return }
+        
+        let descriptor = FetchDescriptor<FavoriteBike>(predicate: #Predicate { $0.bikeId == bikeId })
+        let existing = try? context.fetch(descriptor)
+        
+        if let favorite = existing?.first {
+            context.delete(favorite)
         } else {
-            favoriteBikeIDs.insert(bikeId)
+            let newFavorite = FavoriteBike(bikeId: bikeId)
+            context.insert(newFavorite)
         }
-    }
-    
-    func removeFavorite(at offsets: IndexSet) {
-        let idsToRemove = offsets.map { favoriteBikes[$0].id }
-        for id in idsToRemove {
-            favoriteBikeIDs.remove(id)
-        }
+        
+        try? context.save()
+        Task { await loadFavoriteBikes() }
     }
     
     func isFavorite(bikeId: String) -> Bool {
-        favoriteBikeIDs.contains(bikeId)
+        guard let context = modelContext else { return false }
+        let descriptor = FetchDescriptor<FavoriteBike>(predicate: #Predicate { $0.bikeId == bikeId })
+        let count = (try? context.fetchCount(descriptor)) ?? 0
+        return count > 0
     }
     
-    private func saveFavorites() {
-        if let data = try? JSONEncoder().encode(favoriteBikeIDs) {
-            UserDefaults.standard.set(data, forKey: saveKey)
-        }
-    }
-    
-    func loadFavorites() {
-        if let data = UserDefaults.standard.data(forKey: saveKey),
-           let decoded = try? JSONDecoder().decode(Set<String>.self, from: data) {
-            favoriteBikeIDs = decoded
-        }
+    func removeFavorite(bikeId: String) {
+        guard let context = modelContext else { return }
+        let descriptor = FetchDescriptor<FavoriteBike>(predicate: #Predicate { $0.bikeId == bikeId })
+        // Solo eliminamos si existe — nunca añade accidentalmente
+        guard let existing = try? context.fetch(descriptor), let favorite = existing.first else { return }
+        context.delete(favorite)
+        try? context.save()
+        Task { await loadFavoriteBikes() }
     }
     
     func loadFavoriteBikes() async {
+        guard let context = modelContext else { return }
+
         do {
-            let allBikes = try await apiService.fetchBikes()
-            favoriteBikes = allBikes.filter { favoriteBikeIDs.contains($0.id) }
+            let descriptor = FetchDescriptor<FavoriteBike>()
+            let favorites = try context.fetch(descriptor)
+            let favoriteIDs = Set(favorites.map { $0.bikeId })
+
+            // Solo pedimos red si aún no tenemos las bicis en cache
+            if allBikesCache.isEmpty {
+                allBikesCache = try await apiService.fetchBikes()
+            }
+
+            await MainActor.run {
+                self.favoriteBikes = allBikesCache.filter { favoriteIDs.contains($0.id) }
+            }
         } catch {
             print("Error loading favorite bikes: \(error)")
         }

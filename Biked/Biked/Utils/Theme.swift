@@ -3,15 +3,21 @@ import SwiftUI
 struct AppTheme {
     struct Colors {
         // Core Backgrounds
-        static let backgroundData = Color("BackgroundData") // We'll make this adaptive in Assets later, but for now we can likely use system
+        static let backgroundData = Color(hex: "0f2027")
         static let background = Color(UIColor.systemBackground)
         static let secondaryBackground = Color(UIColor.secondarySystemBackground)
         
         // Premium Accents
         static let primary = Color.blue
+        static let secondary = Color.purple
         static let accent = Color.cyan
         static let textPrimary = Color.primary
         static let textSecondary = Color.secondary
+        
+        // Semantic Colors
+        static let success = Color.green
+        static let error = Color.red
+        static let warning = Color.orange
         
         // Specific UI Elements
         static let cardBackground = Color(UIColor.systemGray6)
@@ -20,6 +26,12 @@ struct AppTheme {
     struct Gradients {
         static let primary = LinearGradient(
             gradient: Gradient(colors: [Color.blue, Color.purple]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        
+        static let premiumGold = LinearGradient(
+            gradient: Gradient(colors: [Color(hex: "BF953F"), Color(hex: "FCF6BA"), Color(hex: "B38728"), Color(hex: "FBF5B7"), Color(hex: "AA771C")]),
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
@@ -45,8 +57,10 @@ struct AppTheme {
     
     struct Fonts {
         static let titleLarge = Font.system(size: 34, weight: .bold, design: .rounded)
+        static let titleMedium = Font.system(size: 24, weight: .bold, design: .rounded)
         static let headline = Font.system(size: 20, weight: .semibold, design: .rounded)
         static let subheadline = Font.system(size: 16, weight: .medium, design: .default)
+        static let caption = Font.system(size: 12, weight: .regular, design: .default)
     }
 }
 

@@ -4,6 +4,8 @@ struct BikeDetailView: View {
     let bike: Bike
     var matchedGeometry: Geometry? // Option to show matched geometry
     
+    @Environment(FavoritesViewModel.self) private var favoritesViewModel
+    @Environment(AppSettings.self) private var settings
     @State private var selectedBuild: BikeBuild?
     
     var body: some View {
@@ -15,19 +17,22 @@ struct BikeDetailView: View {
             ScrollView {
                 VStack(spacing: 0) {
                     // Immersive Header Image
-                    if let build = selectedBuild ?? bike.builds.first {
+                    let buildImages = (selectedBuild ?? bike.builds.first)?.images ?? []
+                    if buildImages.isEmpty {
+                        BikeImageView(url: bike.mainImage, brand: bike.brand, contentMode: .fit)
+                            .frame(height: 300)
+                            .overlay(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.clear, AppTheme.Colors.backgroundData.opacity(0.8)]),
+                                    startPoint: .center,
+                                    endPoint: .bottom
+                                )
+                            )
+                    } else {
                         TabView {
-                            ForEach(build.images, id: \.self) { imageUrl in
-                                AsyncImage(url: URL(string: imageUrl)) { phase in
-                                    if let image = phase.image {
-                                        image
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                    } else {
-                                        Color.gray.opacity(0.3)
-                                    }
-                                }
-                                .clipped()
+                            ForEach(buildImages, id: \.self) { imageUrl in
+                                BikeImageView(url: bike.resolveImageURL(imageUrl), brand: bike.brand, contentMode: .fit)
+                                    .clipped()
                             }
                         }
                         .tabViewStyle(PageTabViewStyle())
@@ -66,23 +71,70 @@ struct BikeDetailView: View {
                                 .cornerRadius(8)
                         }
                         
-                        Divider().background(Color.white.opacity(0.2))
+                        // Official Link Button
+                        if let urlString = bike.officialUrl, let url = URL(string: urlString) {
+                            Link(destination: url) {
+                                HStack {
+                                    Text("EXPLORAR EN WEB OFICIAL")
+                                        .fontWeight(.black)
+                                        .font(.subheadline)
+                                    Image(systemName: "arrow.up.right.square.fill")
+                                }
+                                .padding(.vertical, 16)
+                                .frame(maxWidth: .infinity)
+                                .background(AppTheme.Gradients.primary)
+                                .foregroundColor(.white)
+                                .cornerRadius(16)
+                                .shadow(color: AppTheme.Colors.primary.opacity(0.3), radius: 10, x: 0, y: 5)
+                            }
+                            .buttonStyle(PremiumScaleButtonStyle())
+                            .accessibilityLabel("Comprar en sitio web oficial")
+                            .accessibilityHint("Abre el sitio web de la marca en el navegador")
+                            .padding(.vertical, 10)
+                        }
+                        
+                        Divider().background(Color.white.opacity(0.15))
+                        
+                        // Favorite Button (Prominent)
+                        Button(action: {
+                            Haptics.impact(style: .medium)
+                            favoritesViewModel.toggleFavorite(bikeId: bike.id)
+                        }) {
+                            HStack {
+                                Image(systemName: favoritesViewModel.isFavorite(bikeId: bike.id) ? "heart.fill" : "heart")
+                                    .foregroundColor(favoritesViewModel.isFavorite(bikeId: bike.id) ? .red : .white)
+                                Text(favoritesViewModel.isFavorite(bikeId: bike.id) ? "Guardado en Favoritos" : "Añadir a mi Garaje")
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                            }
+                            .padding(.vertical, 14)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.white.opacity(0.08))
+                            .cornerRadius(16)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke(Color.white.opacity(0.1), lineWidth: 1)
+                            )
+                        }
+                        .buttonStyle(PremiumScaleButtonStyle())
+                        .accessibilityLabel(favoritesViewModel.isFavorite(bikeId: bike.id) ? "Eliminar de favoritos" : "Añadir a favoritos")
                         
                         // Build Selector
                         if bike.builds.count > 1 {
-                            VStack(alignment: .leading) {
-                                Text("Selecciona Montaje")
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("Opciones de Montaje")
                                     .font(AppTheme.Fonts.headline)
                                     .foregroundColor(.white)
                                 
                                 ScrollView(.horizontal, showsIndicators: false) {
-                                    HStack {
+                                    HStack(spacing: 12) {
                                         ForEach(bike.builds) { build in
                                             BuildButton(
                                                 title: build.name,
                                                 isSelected: selectedBuild?.id == build.id
                                             ) {
-                                                withAnimation {
+                                                Haptics.selection()
+                                                withAnimation(.spring()) {
                                                     selectedBuild = build
                                                 }
                                             }
@@ -90,9 +142,10 @@ struct BikeDetailView: View {
                                     }
                                 }
                             }
+                            .padding(.top, 10)
                         }
                         
-                        // Specs Grid
+                        // Specs Grid (...)
                         if let specs = (selectedBuild ?? bike.builds.first)?.specs {
                             VStack(alignment: .leading, spacing: 10) {
                                 Text("Especificaciones")
@@ -107,29 +160,50 @@ struct BikeDetailView: View {
                             }
                         }
                         
-                        // Geometry Table (Simplified for now)
+                        // Geometry Table
                         VStack(alignment: .leading, spacing: 10) {
                             Text("Geometría (Stack / Reach)")
                                 .font(AppTheme.Fonts.headline)
                                 .foregroundColor(.white)
                             
                             ForEach(bike.geometry, id: \.size) { geo in
+                                let isMatch = matchedGeometry?.size == geo.size
                                 HStack {
                                     Text("Talla \(geo.size)")
                                         .font(.subheadline)
+                                        .fontWeight(isMatch ? .bold : .regular)
                                         .foregroundColor(.white)
                                         .frame(width: 80, alignment: .leading)
                                     
+                                    if isMatch {
+                                        Text("RECOMENDADO")
+                                            .font(.caption2)
+                                            .fontWeight(.bold)
+                                            .padding(.horizontal, 6)
+                                            .padding(.vertical, 2)
+                                            .background(Color.green)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(4)
+                                    }
+                                    
                                     Spacer()
                                     
-                                    Text("\(Int(geo.stack))mm / \(Int(geo.reach))mm")
+                                    let stackDisplay = settings.unitSystem == .metric ? "\(Int(geo.stack))mm" : String(format: "%.1fin", settings.convertFromMm(geo.stack))
+                                    let reachDisplay = settings.unitSystem == .metric ? "\(Int(geo.reach))mm" : String(format: "%.1fin", settings.convertFromMm(geo.reach))
+                                    
+                                    Text("\(stackDisplay) / \(reachDisplay)")
                                         .font(.subheadline)
-                                        .foregroundColor(.gray)
+                                        .fontWeight(isMatch ? .bold : .regular)
+                                        .foregroundColor(isMatch ? .white : .gray)
                                 }
                                 .padding(.vertical, 4)
                                 .padding(.horizontal)
-                                .background(Color.white.opacity(0.05))
+                                .background(isMatch ? AppTheme.Colors.primary.opacity(0.3) : Color.white.opacity(0.05))
                                 .cornerRadius(8)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(isMatch ? AppTheme.Colors.primary : Color.clear, lineWidth: 1)
+                                )
                             }
                         }
                         
@@ -143,6 +217,16 @@ struct BikeDetailView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    favoritesViewModel.toggleFavorite(bikeId: bike.id)
+                }) {
+                    Image(systemName: favoritesViewModel.isFavorite(bikeId: bike.id) ? "heart.fill" : "heart")
+                        .foregroundColor(favoritesViewModel.isFavorite(bikeId: bike.id) ? .red : .white)
+                }
+            }
+        }
         .onAppear {
             if selectedBuild == nil {
                 selectedBuild = bike.builds.first

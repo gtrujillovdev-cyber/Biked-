@@ -21,8 +21,9 @@ struct MatchingResult: Identifiable, Hashable {
     var brand: String { bike.brand }
     var matchedSize: String { matchedGeometry.size }
     
-    // Score (lower is better, 0 is perfect match)
-    var matchScore: Double {
-        abs(stackDifference) + abs(reachDifference)
+    // Confidence Score (0-100%, higher is better)
+    // Usa la misma distancia euclidiana que el ordenado, así el % es coherente con la posición en la lista
+    var confidenceScore: Double {
+        max(0, 100 - distance)
     }
 }

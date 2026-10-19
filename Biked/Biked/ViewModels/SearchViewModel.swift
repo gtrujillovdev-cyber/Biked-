@@ -19,61 +19,82 @@ class SearchViewModel {
     // Biometric Inputs
     var userHeight: String = ""
     var userInseam: String = ""
+    var userTrunk: String = ""
+    var userArm: String = ""
+    
+    // Category Filter: "CARRETERA" (Endurance/Aero/All-Rounder) vs "TT/TRIATLON"
+    var selectedCategory: String = "CARRETERA"
     
     var searchResults: [MatchingResult] = []
     var isSearching: Bool = false
     var errorMessage: String?
     
-    // Computed property to show what we are searching for
-    var targetStack: Double? {
+    // Computed property que calcula la estimación una sola vez para ambas dimensiones
+    // Evita llamar a estimateTargetGeometry() dos veces por render cycle
+    var targetGeometry: (stack: Double?, reach: Double?) {
         if searchMode == .geometric {
-            return Double(userStack)
+            return (Double(userStack), Double(userReach))
         } else {
-            return estimateTargetGeometry().stack
+            return estimateTargetGeometry()
         }
     }
-    
-    var targetReach: Double? {
-        if searchMode == .geometric {
-            return Double(userReach)
-        } else {
-            return estimateTargetGeometry().reach
-        }
-    }
+
+    var targetStack: Double? { targetGeometry.stack }
+    var targetReach: Double? { targetGeometry.reach }
     
     private let apiService: BikeAPIService
+    private let settings: AppSettings
     
-    init(apiService: BikeAPIService = .shared) {
+    init(apiService: BikeAPIService = .shared, settings: AppSettings = .shared) {
         self.apiService = apiService
+        self.settings = settings
     }
     
     func search() async {
         let stack: Double
         let reach: Double
         
+        // Helper to sanitize input (replace comma with dot)
+        func sanitize(_ input: String) -> Double? {
+            return Double(input.replacingOccurrences(of: ",", with: "."))
+        }
+
         // Determine target Stack/Reach based on mode
         switch searchMode {
         case .geometric:
-            guard let s = Double(userStack), let r = Double(userReach) else {
-                errorMessage = "Introduzca valores válidos para Stack y Reach."
+            guard let s = sanitize(userStack), let r = sanitize(userReach) else {
+                errorMessage = "Introduzca valores válidos para Stack y Reach (ej. 550 o 550.5)"
                 return
             }
-            stack = s
-            reach = r
-            
+            // El input del usuario está en sus unidades (mm o pulgadas), convertimos a mm
+            stack = settings.convertToMm(s)
+            reach = settings.convertToMm(r)
+
         case .biometric:
-            guard let h = Double(userHeight), let i = Double(userInseam) else {
-                errorMessage = "Introduzca su altura y entrepierna."
+            guard let h = sanitize(userHeight), let i = sanitize(userInseam) else {
+                errorMessage = "Introduzca su altura y entrepierna (ej. 175 o 175,5)"
                 return
             }
-            let targets = estimateTargetGeometry(height: h, inseam: i)
+
+            // Convertimos la entrada del usuario a cm para las fórmulas biométricas
+            let heightCm = settings.convertToCm(h)
+            let inseamCm = settings.convertToCm(i)
+            let trunkCm = sanitize(userTrunk).map { settings.convertToCm($0) }
+            let armCm = sanitize(userArm).map { settings.convertToCm($0) }
+
+            let targets = estimateTargetGeometry(height: heightCm, inseam: inseamCm, trunk: trunkCm, arm: armCm)
             guard let s = targets.stack, let r = targets.reach else {
                 errorMessage = "No se pudo estimar la geometría."
                 return
             }
+            // estimateTargetGeometry ya devuelve mm (multiplica por 10 internamente)
+            // NO aplicar convertToMm aquí o se duplicaría la conversión en modo imperial
             stack = s
             reach = r
         }
+
+        let finalStack = stack
+        let finalReach = reach
         
         isSearching = true
         errorMessage = nil
@@ -81,7 +102,17 @@ class SearchViewModel {
         
         do {
             let bikes = try await apiService.fetchBikes()
-            searchResults = findMatches(for: bikes, userStack: stack, userReach: reach, tolerance: tolerance)
+            
+            // Filter bikes based on selected category (Road vs TT)
+            let filteredBikes = bikes.filter { bike in
+                if selectedCategory == "CARRETERA" {
+                    return bike.category == "ROAD"
+                } else {
+                    return bike.category == "TT"
+                }
+            }
+            
+            searchResults = findMatches(for: filteredBikes, userStack: finalStack, userReach: finalReach, tolerance: tolerance)
         } catch {
             errorMessage = "Error al cargar bicicletas: \(error.localizedDescription)"
         }
@@ -96,23 +127,35 @@ class SearchViewModel {
     // Refinement:
     // Reach is often related to Trunk + Arm length, but Height is a decent proxy.
     // Ratio Reach/Height ~ 0.22 - 0.24 for Endurance geometry
-    private func estimateTargetGeometry(height: Double? = nil, inseam: Double? = nil) -> (stack: Double?, reach: Double?) {
-        let h = height ?? Double(userHeight)
-        let i = inseam ?? Double(userInseam)
+    private func estimateTargetGeometry(height: Double? = nil, inseam: Double? = nil, trunk: Double? = nil, arm: Double? = nil) -> (stack: Double?, reach: Double?) {
+        // Si los parámetros vienen de search(), ya están en cm (convertidos antes de llamar)
+        // Si no vienen parámetros (llamada desde targetStack/targetReach para el preview),
+        // los leemos de los strings del usuario y aplicamos la conversión de unidades aquí
+        let h = height ?? Double(userHeight.replacingOccurrences(of: ",", with: ".")).map { settings.convertToCm($0) }
+        let i = inseam ?? Double(userInseam.replacingOccurrences(of: ",", with: ".")).map { settings.convertToCm($0) }
+        let t = trunk ?? Double(userTrunk.replacingOccurrences(of: ",", with: ".")).map { settings.convertToCm($0) }
+        let a = arm ?? Double(userArm.replacingOccurrences(of: ",", with: ".")).map { settings.convertToCm($0) }
         
-        guard let validHeight = h, let validInseam = i else {
+        guard let validInseam = i else {
             return (nil, nil)
         }
         
-        // Estimation Formulas (Endurance Road Bike / Gran Fondo)
-        // Stack: Highly correlated with leg length (Inseam)
-        // Formula: Inseam * 0.69 (Common fit shorthand)
-        // Formula: Inseam * 0.69 (Common fit shorthand) -> Result is in CM, convert to MM
-        let estimatedStack = validInseam * 0.69 * 10
+        let stackFactor = selectedCategory == "TT/TRIATLON" ? 0.65 : 0.69
+        let estimatedStack = validInseam * stackFactor * 10
         
-        // Reach: Correlated with overall height
-        // Formula: Height * 0.225 (Approximate for comfortable position) -> Result is in CM, convert to MM
-        let estimatedReach = validHeight * 0.225 * 10
+        // Reach Estimation logic
+        var estimatedReach: Double? = nil
+        
+        if let validTrunk = t, let validArm = a {
+            // Advanced formula: (Trunk + Arm) * factor
+            // Road: ~ 0.445, TT: ~ 0.465
+            let reachFactor = selectedCategory == "TT/TRIATLON" ? 0.465 : 0.445
+            estimatedReach = (validTrunk + validArm) * reachFactor * 10
+        } else if let validHeight = h {
+            // Fallback to height proxy
+            let reachFactor = selectedCategory == "TT/TRIATLON" ? 0.235 : 0.225
+            estimatedReach = validHeight * reachFactor * 10
+        }
         
         return (estimatedStack, estimatedReach)
     }
@@ -129,9 +172,11 @@ class SearchViewModel {
             
             if let best = bestMatch {
                 let distance = best.distance(to: userStack, targetReach: userReach)
-                
-                // Only include reasonable matches (e.g. within tolerance + 20mm buffer to be safe, or just always include best and let user decide)
-                // For now, let's include all valid matches found
+
+                // Solo incluimos bicicletas cuya mejor talla esté dentro de la tolerancia del usuario
+                // La distancia es euclidiana en mm: sqrt(stackDiff² + reachDiff²)
+                guard distance <= tolerance else { continue }
+
                 let match = MatchingResult(
                     bike: bike,
                     matchedGeometry: best,

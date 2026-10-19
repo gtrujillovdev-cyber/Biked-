@@ -3,47 +3,80 @@ import Foundation
 class BikeAPIService {
     static let shared = BikeAPIService()
     
-    // URL for the "Indie Backend"
-    // Validated Path: RepoRoot -> Biked -> Biked -> Data -> bikes.json
-    private let databaseURL = URL(string: "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Data/bikes.json")!
+    // In-memory cache for instant navigation and UI responsiveness
+    private var cachedBikes: [Bike] = []
+    private var hasAttemptedCloudSync = false
+
+    func fetchBikes(forceRefresh: Bool = false) async throws -> [Bike] {
+        // 1. If in-memory cache is populated and no force refresh requested, return immediately
+        if !cachedBikes.isEmpty && !forceRefresh {
+            return cachedBikes
+        }
+        
+        let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent("bikes_cache.json")
+        
+        // 2. Local-First: Load from bundle or cache immediately so UI never blocks
+        if cachedBikes.isEmpty {
+            if let localBikes = loadLocalBundleData() {
+                cachedBikes = localBikes
+            } else if let diskBikes = loadDiskCache(from: cacheURL) {
+                cachedBikes = diskBikes
+            }
+        }
+        
+        // 3. Attempt cloud sync (Supabase) with a strict timeout if not already attempted or force refreshed
+        if !hasAttemptedCloudSync || forceRefresh {
+            hasAttemptedCloudSync = true
+            do {
+                let cloudBikes = try await withTimeout(seconds: 3.0) {
+                    try await SupabaseService.shared.fetchBikes()
+                }
+                if !cloudBikes.isEmpty {
+                    self.cachedBikes = cloudBikes
+                    if let encoded = try? JSONEncoder().encode(cloudBikes) {
+                        try? encoded.write(to: cacheURL)
+                    }
+                }
+            } catch {
+                print("Supabase unreachable or timed out (\(error.localizedDescription)). Using local data.")
+            }
+        }
+        
+        return cachedBikes
+    }
     
-    // For local testing before push, we can try to load from Bundle if the file is added,
-    // or just return the static data if the network fails.
-    
-    func fetchBikes() async throws -> [Bike] {
-        // 1. Try to fetch from the "Real" API (GitHub Raw)
+    private func loadLocalBundleData() -> [Bike]? {
+        guard let bundleUrl = Bundle.main.url(forResource: "bikes", withExtension: "json") else {
+            return nil
+        }
         do {
-            print("Attempting to fetch from: \(databaseURL.absoluteString)")
-            let (data, response) = try await URLSession.shared.data(from: databaseURL)
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                print("Error: Not an HTTP response")
-                throw URLError(.badServerResponse)
-            }
-            
-            print("Status Code: \(httpResponse.statusCode)")
-            
-            guard httpResponse.statusCode == 200 else {
-                print("Error: Status code \(httpResponse.statusCode)")
-                throw URLError(.badServerResponse)
-            }
-            
-            let bikes = try JSONDecoder().decode([Bike].self, from: data)
-            print("Successfully fetched \(bikes.count) bikes from GitHub!")
-            return bikes
-            
+            let data = try Data(contentsOf: bundleUrl)
+            return try JSONDecoder().decode([Bike].self, from: data)
         } catch {
-            print("--------------------------------------------------")
-            print("CRITICAL ERROR FETCHING FROM GITHUB:")
-            print(error)
-            print("--------------------------------------------------")
-            print("Falling back to local data.")
-            // 2. Fallback: Return local mock data
-            return getLocalFallbackData()
+            print("Error decoding bundled bikes.json: \(error)")
+            return nil
         }
     }
     
-    private func getLocalFallbackData() -> [Bike] {
-        return [] // Local fallback removed to avoid maintenance of hardcoded data.
+    private func loadDiskCache(from url: URL) -> [Bike]? {
+        guard let data = try? Data(contentsOf: url) else { return nil }
+        return try? JSONDecoder().decode([Bike].self, from: data)
+    }
+    
+    private func withTimeout<T: Sendable>(seconds: TimeInterval, operation: @Sendable @escaping () async throws -> T) async throws -> T {
+        try await withThrowingTaskGroup(of: T.self) { group in
+            group.addTask {
+                try await operation()
+            }
+            group.addTask {
+                try await Task.sleep(nanoseconds: UInt64(seconds * 1_000_000_000))
+                throw URLError(.timedOut)
+            }
+            let result = try await group.next()!
+            group.cancelAll()
+            return result
+        }
     }
 }
+

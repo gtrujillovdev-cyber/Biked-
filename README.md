@@ -1,37 +1,32 @@
 # Biked - Bike Geometry Finder 🚲
 
-**Biked** is a premium iOS application designed for cyclists who want to find their perfect bike match. It allows users to search through a curated database of premium 2024/2025 road bikes, compare geometries, and get size recommendations based on their body measurements.
+**Biked** es una aplicación iOS premium diseñada para ciclistas que buscan su bicicleta ideal basándose en la ciencia de la geometría. Permite a los usuarios buscar en una base de datos curada de bicicletas de gama alta (2024/2025), comparar geometrías y recibir recomendaciones de talla personalizadas según sus medidas corporales.
 
 
 
-## ✨ Features
+## ✨ Características Principales
 
-- **Extensive Database**: 20+ top-tier bike models (Specialized, Canyon, Trek, Pinarello, Bianchi, Wilier, and more).
-- **Smart Recommendations**: Find your ideal size by inputting your height and reach.
-- **High-Quality Imagery**: Automated image acquisition focusing on transparent, side-view profile images.
-- **Direct Access**: Quick links to official brand product pages for deep dives.
-- **Favorites**: Save your dream bikes to compare them later.
-- **Modern UI**: A sleek, dark-themed experience with fluid animations and collapsible search interfaces.
+-   **Base de Datos en la Nube**: Integración completa con **Supabase** para datos de geometrías e imágenes en tiempo real.
+-   **Recomendaciones Inteligentes**: Algoritmo de "Match" basado en Stack y Reach objetivo.
+-   **Modo Biométrico**: Calcula tu stack/reach ideal introduciendo tus medidas (altura, entrepierna, tronco, brazo).
+-   **Scrapers Automatizados**: Extracción avanzada de datos de marcas como **Canyon**, **Specialized** y **Trek**.
+-   **Interfaz Moderna**: Diseño oscuro elegante con animaciones fluidas en SwiftUI.
 
-## 🛠 Technology Stack
+## 📖 Documentación del Proyecto
 
-- **Frontend**: SwiftUI
-- **Architecture**: MVVM (Model-View-ViewModel)
-- **Data Management**: JSON-based local database with Swift Codable.
-- **Automation**: Python-based image scraper (Bing/DDG) for asset management.
+Hemos consolidado toda la información técnica y de usuario en guías detalladas:
 
-## 📖 Detailed Documentation
+1.  🚀 **[Guía de Inicio Rápido](Docs/SETUP_GUIDE.md)**: Cómo configurar Supabase, Python y Xcode.
+2.  🏗️ **[Arquitectura Técnica](Docs/ARCHITECTURE.md)**: Explicación de las capas MVVM, el esquema de DB y el pipeline de datos.
+3.  🛠️ **[Guía de Uso](Docs/USAGE_GUIDE.md)**: Cómo usar la app y cómo ejecutar los scrapers de actualización.
+4.  🧑‍💻 **[Guía de Contribución](Docs/CONTRIBUTING.md)**: Convenciones de código y procesos de desarrollo.
 
-For a deep dive into how the app was built, its internal data flow, and how the image automation works, check out our technical documentation:
+## 🚀 Instalación Rápida
 
-👉 **[DOCUMENTATION.md](DOCUMENTATION.md)**
-
-## 🚀 Getting Started
-
-1. Clone the repository.
-2. Open `Biked.xcodeproj` in Xcode.
-3. Ensure the `BikeImages` folder is correctly referenced as a "Folder Reference" in the Resources group.
-4. Build and Run!
+1.  Clona el repositorio.
+2.  Abre `Biked.xcodeproj` en Xcode.
+3.  Configura tus credenciales en `SupabaseConfig.swift`.
+4.  ¡Lanza y disfruta!
 
 ---
-*Developed with ❤️ for the cycling community.*
+*Desarrollado con ❤️ para la comunidad ciclista.*

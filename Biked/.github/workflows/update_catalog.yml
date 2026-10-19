@@ -1,0 +1,37 @@
+name: Update Bike Catalog
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Runs every Sunday at midnight
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  update-catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      - name: Run Scraper
+        run: |
+          cd Biked/Biked/Data
+          python scraper.py
+          # Optional: python fetch_images.py
+          # Optional: python download_images.py (requires more setup for storage)
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "Biked Automation"
+          git config --global user.email "automation@biked.app"
+          git add Biked/Biked/Data/bikes.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: automated catalog update [skip ci]" && git push)

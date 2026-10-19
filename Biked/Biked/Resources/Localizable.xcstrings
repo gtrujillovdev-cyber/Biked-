@@ -1,0 +1,505 @@
+{
+  "sourceLanguage" : "es",
+  "strings" : {
+    "%@ / %@" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ / %2$@"
+          }
+        }
+      }
+    },
+    "%lld%%" : {
+
+    },
+    "0" : {
+
+    },
+    "Abre el sitio web de la marca en el navegador" : {
+
+    },
+    "Altura (cm)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Height (cm)"
+          }
+        }
+      }
+    },
+    "Añadir a favoritos" : {
+
+    },
+    "Añadir a Favoritos" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to Favorites"
+          }
+        }
+      }
+    },
+    "Añadir a mi Garaje" : {
+
+    },
+    "BIKED" : {
+
+    },
+    "Brazo (cm)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arm (cm)"
+          }
+        }
+      }
+    },
+    "Buscar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        }
+      }
+    },
+    "Buscar bicicletas" : {
+
+    },
+    "Buscar Bicicletas" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search Bikes"
+          }
+        }
+      }
+    },
+    "Cargando catálogo..." : {
+
+    },
+    "Carretera" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Road"
+          }
+        }
+      }
+    },
+    "Categoría" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Category"
+          }
+        }
+      }
+    },
+    "COMPRAR AQUÍ" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BUY HERE"
+          }
+        }
+      }
+    },
+    "Comprar en sitio web oficial" : {
+
+    },
+    "Developed by Gtv" : {
+
+    },
+    "Disciplina" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Discipline"
+          }
+        }
+      }
+    },
+    "Eliminar" : {
+
+    },
+    "Eliminar de favoritos" : {
+
+    },
+    "Eliminar de Favoritos" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove from Favorites"
+          }
+        }
+      }
+    },
+    "Encuentra tu Bici Ideal" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find Your Ideal Bike"
+          }
+        }
+      }
+    },
+    "Entrepierna (cm)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inseam (cm)"
+          }
+        }
+      }
+    },
+    "Especificaciones" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Specifications"
+          }
+        }
+      }
+    },
+    "Explorar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explore"
+          }
+        }
+      }
+    },
+    "EXPLORAR EN WEB OFICIAL" : {
+
+    },
+    "Explorar Modelos" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explore Models"
+          }
+        }
+      }
+    },
+    "Favoritos" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorites"
+          }
+        }
+      }
+    },
+    "Geometría (Stack / Reach)" : {
+
+    },
+    "Geometría Estimada:" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estimated Geometry:"
+          }
+        }
+      }
+    },
+    "Grupo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Groupset"
+          }
+        }
+      }
+    },
+    "Guardado en Favoritos" : {
+
+    },
+    "Imperial" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imperial"
+          }
+        }
+      }
+    },
+    "Inicia la búsqueda con los parámetros ingresados" : {
+
+    },
+    "Match" : {
+
+    },
+    "Medidas Avanzadas" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Advanced Measurements"
+          }
+        }
+      }
+    },
+    "Métrico" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metric"
+          }
+        }
+      }
+    },
+    "Modificar Búsqueda" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modify Search"
+          }
+        }
+      }
+    },
+    "Modo Biométrico" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biometric Mode"
+          }
+        }
+      }
+    },
+    "Modo Geometría" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geometry Mode"
+          }
+        }
+      }
+    },
+    "NEW" : {
+
+    },
+    "No encontramos bicis con esa geometría. Prueba a aumentar la tolerancia o cambiar los valores." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We couldn't find any bikes with that geometry. Try increasing the tolerance or changing the values."
+          }
+        }
+      }
+    },
+    "No tienes favoritos aún" : {
+
+    },
+    "Opciones de Montaje" : {
+
+    },
+    "Potenciómetro" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Power Meter"
+          }
+        }
+      }
+    },
+    "Reach (mm)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reach (mm)"
+          }
+        }
+      }
+    },
+    "RECOMENDADO" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RECOMMENDED"
+          }
+        }
+      }
+    },
+    "Reintentar" : {
+
+    },
+    "Resultados Recomendados" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recommended Results"
+          }
+        }
+      }
+    },
+    "Ruedas" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wheelset"
+          }
+        }
+      }
+    },
+    "Sin resultados" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No results"
+          }
+        }
+      }
+    },
+    "Stack (mm)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stack (mm)"
+          }
+        }
+      }
+    },
+    "Stack: %lld%@ | Reach: %lld%@" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stack: %1$lld%2$@ | Reach: %3$lld%4$@"
+          }
+        }
+      }
+    },
+    "Stack: %lldmm | Reach: %lldmm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stack: %lldmm | Reach: %lldmm"
+          }
+        }
+      }
+    },
+    "Talla %@" : {
+
+    },
+    "Talla: %@" : {
+
+    },
+    "Todas" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All"
+          }
+        }
+      }
+    },
+    "Triatlón/TT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Triathlon/TT"
+          }
+        }
+      }
+    },
+    "Tronco (cm)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Torso (cm)"
+          }
+        }
+      }
+    },
+    "Tus bicicletas guardadas aparecerán aquí" : {
+
+    },
+    "Unidades" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Units"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

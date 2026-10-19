@@ -1,0 +1,2881 @@
+[
+    {
+        "id": "trek-madone-slr",
+        "brand": "Trek",
+        "model": "Madone SLR Gen 7",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "High performance Aero bike from Trek.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "50",
+                "stack_mm": 515,
+                "reach_mm": 378
+            },
+            {
+                "size": "52",
+                "stack_mm": 529,
+                "reach_mm": 384
+            },
+            {
+                "size": "54",
+                "stack_mm": 540,
+                "reach_mm": 386
+            },
+            {
+                "size": "56",
+                "stack_mm": 563,
+                "reach_mm": 391
+            },
+            {
+                "size": "58",
+                "stack_mm": 579,
+                "reach_mm": 397
+            },
+            {
+                "size": "60",
+                "stack_mm": 596,
+                "reach_mm": 404
+            }
+        ],
+        "builds": [
+            {
+                "id": "madone-slr-9",
+                "name": "SLR 9",
+                "color": "Standard",
+                "price_eur": 12000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/trek-madone-slr.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "canyon-aeroad-cfr",
+        "brand": "Canyon",
+        "model": "Aeroad CFR",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "High performance Aero bike from Canyon.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "XS",
+                "stack_mm": 521,
+                "reach_mm": 369
+            },
+            {
+                "size": "S",
+                "stack_mm": 538,
+                "reach_mm": 380
+            },
+            {
+                "size": "M",
+                "stack_mm": 555,
+                "reach_mm": 395
+            },
+            {
+                "size": "L",
+                "stack_mm": 573,
+                "reach_mm": 404
+            },
+            {
+                "size": "XL",
+                "stack_mm": 591,
+                "reach_mm": 413
+            }
+        ],
+        "builds": [
+            {
+                "id": "aeroad-cfr",
+                "name": "CFR",
+                "color": "Standard",
+                "price_eur": 8999.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/canyon-aeroad-cfr.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "wilier-filante",
+        "brand": "Wilier",
+        "model": "Filante SLR",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "High performance Aero bike from Wilier.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "XS",
+                "stack_mm": 514,
+                "reach_mm": 367
+            },
+            {
+                "size": "S",
+                "stack_mm": 527,
+                "reach_mm": 376
+            },
+            {
+                "size": "M",
+                "stack_mm": 538,
+                "reach_mm": 388
+            },
+            {
+                "size": "L",
+                "stack_mm": 551,
+                "reach_mm": 397
+            },
+            {
+                "size": "XL",
+                "stack_mm": 566,
+                "reach_mm": 406
+            }
+        ],
+        "builds": [
+            {
+                "id": "filante-slr",
+                "name": "Filante SLR",
+                "color": "Standard",
+                "price_eur": 10000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/wilier-filante.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "specialized-tarmac-sl8",
+        "brand": "Specialized",
+        "model": "S-Works Tarmac SL8",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "High performance All-Rounder bike from Specialized.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "44",
+                "stack_mm": 504,
+                "reach_mm": 360
+            },
+            {
+                "size": "49",
+                "stack_mm": 519,
+                "reach_mm": 370
+            },
+            {
+                "size": "52",
+                "stack_mm": 528,
+                "reach_mm": 376
+            },
+            {
+                "size": "54",
+                "stack_mm": 534,
+                "reach_mm": 384
+            },
+            {
+                "size": "56",
+                "stack_mm": 546,
+                "reach_mm": 391
+            },
+            {
+                "size": "58",
+                "stack_mm": 562,
+                "reach_mm": 398
+            },
+            {
+                "size": "61",
+                "stack_mm": 581,
+                "reach_mm": 409
+            }
+        ],
+        "builds": [
+            {
+                "id": "tarmac-sl8-sworks",
+                "name": "S-Works",
+                "color": "Standard",
+                "price_eur": 12500.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/specialized-tarmac-sl8.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "merida-reacto",
+        "brand": "Merida",
+        "model": "Reacto Team",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "High performance Aero bike from Merida.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "XS",
+                "stack_mm": 523,
+                "reach_mm": 373
+            },
+            {
+                "size": "S",
+                "stack_mm": 534,
+                "reach_mm": 382
+            },
+            {
+                "size": "M",
+                "stack_mm": 545,
+                "reach_mm": 395
+            },
+            {
+                "size": "L",
+                "stack_mm": 558,
+                "reach_mm": 403
+            },
+            {
+                "size": "XL",
+                "stack_mm": 572,
+                "reach_mm": 412
+            }
+        ],
+        "builds": [
+            {
+                "id": "reacto-team",
+                "name": "Team",
+                "color": "Standard",
+                "price_eur": 9500.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/merida-reacto.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "cervelo-p5",
+        "brand": "Cervélo",
+        "model": "P5",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Cervélo.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "cervelo-p5-build",
+                "name": "P5 Standard",
+                "color": "Standard",
+                "price_eur": 13000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/cervelo-p5.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "cervelo-p-series",
+        "brand": "Cervélo",
+        "model": "P-Series",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Cervélo.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "cervelo-p-series-build",
+                "name": "P-Series Standard",
+                "color": "Standard",
+                "price_eur": 6000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/cervelo-p-series.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "cervelo-px-series",
+        "brand": "Cervélo",
+        "model": "PX-Series",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Cervélo.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "cervelo-px-series-build",
+                "name": "PX-Series Standard",
+                "color": "Standard",
+                "price_eur": 15000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/cervelo-px-series.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "canyon-speedmax-cfr-tri",
+        "brand": "Canyon",
+        "model": "Speedmax CFR Tri",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Canyon.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "canyon-speedmax-cfr-tri-build",
+                "name": "Speedmax CFR Tri Standard",
+                "color": "Standard",
+                "price_eur": 12500.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/canyon-speedmax-cfr-tri.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "canyon-speedmax-cfr-tt",
+        "brand": "Canyon",
+        "model": "Speedmax CFR TT",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Canyon.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "canyon-speedmax-cfr-tt-build",
+                "name": "Speedmax CFR TT Standard",
+                "color": "Standard",
+                "price_eur": 12000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/canyon-speedmax-cfr-tt.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "canyon-speedmax-cf",
+        "brand": "Canyon",
+        "model": "Speedmax CF",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Canyon.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "canyon-speedmax-cf-build",
+                "name": "Speedmax CF Standard",
+                "color": "Standard",
+                "price_eur": 4500.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/canyon-speedmax-cf.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "trek-speed-concept-slr",
+        "brand": "Trek",
+        "model": "Speed Concept SLR",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Trek.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "trek-speed-concept-slr-build",
+                "name": "Speed Concept SLR Standard",
+                "color": "Standard",
+                "price_eur": 13500.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/trek-speed-concept-slr.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "specialized-shiv-disc",
+        "brand": "Specialized",
+        "model": "S-Works Shiv Disc",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Specialized.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "specialized-shiv-disc-build",
+                "name": "S-Works Shiv Disc Standard",
+                "color": "Standard",
+                "price_eur": 14000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/specialized-shiv-disc.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "specialized-shiv-tt-disc",
+        "brand": "Specialized",
+        "model": "S-Works Shiv TT Disc",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Specialized.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "specialized-shiv-tt-disc-build",
+                "name": "S-Works Shiv TT Disc Standard",
+                "color": "Standard",
+                "price_eur": 13000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/specialized-shiv-tt-disc.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "scott-plasma-6",
+        "brand": "Scott",
+        "model": "Plasma 6",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Scott.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "scott-plasma-6-build",
+                "name": "Plasma 6 Standard",
+                "color": "Standard",
+                "price_eur": 11000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/scott-plasma-6.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "bmc-timemachine-01",
+        "brand": "BMC",
+        "model": "Timemachine 01 Disc",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from BMC.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "bmc-timemachine-01-build",
+                "name": "Timemachine 01 Disc Standard",
+                "color": "Standard",
+                "price_eur": 12000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/bmc-timemachine-01.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "pinarello-bolide-f-hr",
+        "brand": "Pinarello",
+        "model": "Bolide F HR",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Pinarello.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "pinarello-bolide-f-hr-build",
+                "name": "Bolide F HR Standard",
+                "color": "Standard",
+                "price_eur": 18000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/pinarello-bolide-f-hr.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "colnago-tt1",
+        "brand": "Colnago",
+        "model": "TT1",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Colnago.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "colnago-tt1-build",
+                "name": "TT1 Standard",
+                "color": "Standard",
+                "price_eur": 16000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/colnago-tt1.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "factor-hanzo",
+        "brand": "Factor",
+        "model": "HANZŌ",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Factor.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "factor-hanzo-build",
+                "name": "HANZŌ Standard",
+                "color": "Standard",
+                "price_eur": 14000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/factor-hanzo.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "wilier-supersonica-slr",
+        "brand": "Wilier",
+        "model": "Supersonica SLR",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Wilier.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "wilier-supersonica-slr-build",
+                "name": "Supersonica SLR Standard",
+                "color": "Standard",
+                "price_eur": 12000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/wilier-supersonica-slr.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "felt-ia-2-0",
+        "brand": "Felt",
+        "model": "IA 2.0",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Felt.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "felt-ia-2-0-build",
+                "name": "IA 2.0 Standard",
+                "color": "Standard",
+                "price_eur": 13000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/felt-ia-2-0.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "qr-v-pr",
+        "brand": "Quintana Roo",
+        "model": "V-PR",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Quintana Roo.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "qr-v-pr-build",
+                "name": "V-PR Standard",
+                "color": "Standard",
+                "price_eur": 11000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/qr-v-pr.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "argon18-e119-tri",
+        "brand": "Argon 18",
+        "model": "E-119 Tri+ Disc",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Argon 18.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "argon18-e119-tri-build",
+                "name": "E-119 Tri+ Disc Standard",
+                "color": "Standard",
+                "price_eur": 12000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/argon18-e119-tri.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "orbea-ordu",
+        "brand": "Orbea",
+        "model": "Ordu",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Orbea.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "orbea-ordu-build",
+                "name": "Ordu Standard",
+                "color": "Standard",
+                "price_eur": 9500.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/orbea-ordu.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "giant-trinity-advanced",
+        "brand": "Giant",
+        "model": "Trinity Advanced Pro",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Giant.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "giant-trinity-advanced-build",
+                "name": "Trinity Advanced Pro Standard",
+                "color": "Standard",
+                "price_eur": 8000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/giant-trinity-advanced.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "cadex-tri",
+        "brand": "Cadex",
+        "model": "Tri Frameset",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Cadex.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "cadex-tri-build",
+                "name": "Tri Frameset Standard",
+                "color": "Standard",
+                "price_eur": 15000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/cadex-tri.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "cube-aerium-c68x",
+        "brand": "Cube",
+        "model": "Aerium C:68X",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Cube.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "cube-aerium-c68x-build",
+                "name": "Aerium C:68X Standard",
+                "color": "Standard",
+                "price_eur": 10000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/cube-aerium-c68x.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "diamondback-andean",
+        "brand": "Diamondback",
+        "model": "Andean",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Diamondback.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "diamondback-andean-build",
+                "name": "Andean Standard",
+                "color": "Standard",
+                "price_eur": 12000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/diamondback-andean.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "ventum-one",
+        "brand": "Ventum",
+        "model": "One",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Ventum.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "ventum-one-build",
+                "name": "One Standard",
+                "color": "Standard",
+                "price_eur": 11000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/ventum-one.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "ceepo-shadow-r",
+        "brand": "Ceepo",
+        "model": "Shadow-R",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Ceepo.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "ceepo-shadow-r-build",
+                "name": "Shadow-R Standard",
+                "color": "Standard",
+                "price_eur": 12000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/ceepo-shadow-r.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "tririg-omni",
+        "brand": "TriRig",
+        "model": "Omni",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from TriRig.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "tririg-omni-build",
+                "name": "Omni Standard",
+                "color": "Standard",
+                "price_eur": 10000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/tririg-omni.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "ribble-ultra-tt",
+        "brand": "Ribble",
+        "model": "Ultra TT",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Ribble.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "ribble-ultra-tt-build",
+                "name": "Ultra TT Standard",
+                "color": "Standard",
+                "price_eur": 8000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/ribble-ultra-tt.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "kestrel-5000-sl",
+        "brand": "Kestrel",
+        "model": "5000 SL",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Kestrel.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "kestrel-5000-sl-build",
+                "name": "5000 SL Standard",
+                "color": "Standard",
+                "price_eur": 6000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/kestrel-5000-sl.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "berria-miura",
+        "brand": "Berria",
+        "model": "Miura",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Berria.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "berria-miura-build",
+                "name": "Miura Standard",
+                "color": "Standard",
+                "price_eur": 8500.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/berria-miura.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "bh-aerolight-tt",
+        "brand": "BH",
+        "model": "Aerolight TT",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from BH.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "bh-aerolight-tt-build",
+                "name": "Aerolight TT Standard",
+                "color": "Standard",
+                "price_eur": 9000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/bh-aerolight-tt.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "cipollini-nktt",
+        "brand": "Cipollini",
+        "model": "NKTT",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Cipollini.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "cipollini-nktt-build",
+                "name": "NKTT Standard",
+                "color": "Standard",
+                "price_eur": 15000.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/cipollini-nktt.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "ridley-dean-fast",
+        "brand": "Ridley",
+        "model": "Dean Fast",
+        "year": 2024,
+        "category": "TT",
+        "description": "High performance Triathlon/TT bike from Ridley.",
+        "official_url": "",
+        "dateAdded": "2026-02-20",
+        "geometry": [
+            {
+                "size": "M",
+                "stack_mm": 520,
+                "reach_mm": 410,
+                "top_tube_mm": 540
+            },
+            {
+                "size": "L",
+                "stack_mm": 540,
+                "reach_mm": 425,
+                "top_tube_mm": 560
+            }
+        ],
+        "builds": [
+            {
+                "id": "ridley-dean-fast-build",
+                "name": "Dean Fast Standard",
+                "color": "Standard",
+                "price_eur": 9500.0,
+                "images": [
+                    "https://raw.githubusercontent.com/gtrujillovdev-cyber/Biked/main/Biked/Biked/Resources/BikeImages/ridley-dean-fast.png"
+                ],
+                "specs": {
+                    "groupset": "Shimano/SRAM",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "M": 1,
+                    "L": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "canyon-endurace-cf-slx",
+        "brand": "Canyon",
+        "model": "Endurace CF SLX",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Endurance road bike with long-distance comfort and race geometry.",
+        "official_url": "https://www.canyon.com/en-es/road-bikes/endurance-bikes/endurace/",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "2XS",
+                "stack_mm": 530,
+                "reach_mm": 355
+            },
+            {
+                "size": "XS",
+                "stack_mm": 549,
+                "reach_mm": 366
+            },
+            {
+                "size": "S",
+                "stack_mm": 567,
+                "reach_mm": 377
+            },
+            {
+                "size": "M",
+                "stack_mm": 587,
+                "reach_mm": 387
+            },
+            {
+                "size": "L",
+                "stack_mm": 608,
+                "reach_mm": 397
+            },
+            {
+                "size": "XL",
+                "stack_mm": 630,
+                "reach_mm": 406
+            },
+            {
+                "size": "2XL",
+                "stack_mm": 651,
+                "reach_mm": 414
+            }
+        ],
+        "builds": [
+            {
+                "id": "canyon-endurace-cf-slx-build",
+                "name": "CF SLX 8 Di2",
+                "color": "Standard",
+                "price_eur": 3499,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Ultegra Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "specialized-roubaix-sl8",
+        "brand": "Specialized",
+        "model": "Roubaix SL8",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Endurance race bike with Future Shock 3.0 suspension for long-distance comfort.",
+        "official_url": "https://www.specialized.com/es/es/roubaix-sl8",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "44",
+                "stack_mm": 517,
+                "reach_mm": 358
+            },
+            {
+                "size": "49",
+                "stack_mm": 547,
+                "reach_mm": 370
+            },
+            {
+                "size": "52",
+                "stack_mm": 562,
+                "reach_mm": 377
+            },
+            {
+                "size": "54",
+                "stack_mm": 576,
+                "reach_mm": 383
+            },
+            {
+                "size": "56",
+                "stack_mm": 591,
+                "reach_mm": 390
+            },
+            {
+                "size": "58",
+                "stack_mm": 607,
+                "reach_mm": 397
+            },
+            {
+                "size": "61",
+                "stack_mm": 630,
+                "reach_mm": 408
+            }
+        ],
+        "builds": [
+            {
+                "id": "specialized-roubaix-sl8-build",
+                "name": "Pro",
+                "color": "Standard",
+                "price_eur": 5500,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Ultegra Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "giant-defy-advanced-pro",
+        "brand": "Giant",
+        "model": "Defy Advanced Pro",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Endurance road bike designed to tame rough roads with D-Fuse seatpost.",
+        "official_url": "https://www.giant-bicycles.com/es/defy-advanced-pro",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "XS",
+                "stack_mm": 565,
+                "reach_mm": 364
+            },
+            {
+                "size": "S",
+                "stack_mm": 582,
+                "reach_mm": 374
+            },
+            {
+                "size": "M",
+                "stack_mm": 599,
+                "reach_mm": 383
+            },
+            {
+                "size": "ML",
+                "stack_mm": 616,
+                "reach_mm": 392
+            },
+            {
+                "size": "L",
+                "stack_mm": 633,
+                "reach_mm": 400
+            },
+            {
+                "size": "XL",
+                "stack_mm": 650,
+                "reach_mm": 409
+            }
+        ],
+        "builds": [
+            {
+                "id": "giant-defy-advanced-pro-build",
+                "name": "1",
+                "color": "Standard",
+                "price_eur": 3799,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Ultegra Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "cannondale-synapse-carbon",
+        "brand": "Cannondale",
+        "model": "Synapse Carbon",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Award-winning endurance road bike with SmartForm carbon construction.",
+        "official_url": "https://www.cannondale.com/es-es/bikes/road/endurance/synapse",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "44",
+                "stack_mm": 543,
+                "reach_mm": 356
+            },
+            {
+                "size": "48",
+                "stack_mm": 557,
+                "reach_mm": 364
+            },
+            {
+                "size": "51",
+                "stack_mm": 570,
+                "reach_mm": 372
+            },
+            {
+                "size": "54",
+                "stack_mm": 581,
+                "reach_mm": 380
+            },
+            {
+                "size": "56",
+                "stack_mm": 595,
+                "reach_mm": 389
+            },
+            {
+                "size": "58",
+                "stack_mm": 610,
+                "reach_mm": 397
+            },
+            {
+                "size": "61",
+                "stack_mm": 631,
+                "reach_mm": 408
+            }
+        ],
+        "builds": [
+            {
+                "id": "cannondale-synapse-carbon-build",
+                "name": "2 RLE",
+                "color": "Standard",
+                "price_eur": 3499,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano 105 Di2",
+                    "wheelset": "Aluminium",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "orbea-avant",
+        "brand": "Orbea",
+        "model": "Avant M20i",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Versatile endurance aluminium road bike with disc brakes.",
+        "official_url": "https://www.orbea.com/es-es/bicicletas/carretera/avant",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "47",
+                "stack_mm": 549,
+                "reach_mm": 365
+            },
+            {
+                "size": "49",
+                "stack_mm": 558,
+                "reach_mm": 372
+            },
+            {
+                "size": "51",
+                "stack_mm": 568,
+                "reach_mm": 379
+            },
+            {
+                "size": "53",
+                "stack_mm": 579,
+                "reach_mm": 385
+            },
+            {
+                "size": "55",
+                "stack_mm": 591,
+                "reach_mm": 391
+            },
+            {
+                "size": "57",
+                "stack_mm": 604,
+                "reach_mm": 398
+            },
+            {
+                "size": "59",
+                "stack_mm": 617,
+                "reach_mm": 405
+            }
+        ],
+        "builds": [
+            {
+                "id": "orbea-avant-build",
+                "name": "M20i",
+                "color": "Standard",
+                "price_eur": 2099,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano 105",
+                    "wheelset": "Aluminium",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "canyon-ultimate-cf-slx",
+        "brand": "Canyon",
+        "model": "Ultimate CF SLX",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Lightweight all-rounder race bike with climbing and sprinting versatility.",
+        "official_url": "https://www.canyon.com/en-es/road-bikes/race-bikes/ultimate/",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "2XS",
+                "stack_mm": 499,
+                "reach_mm": 354
+            },
+            {
+                "size": "XS",
+                "stack_mm": 516,
+                "reach_mm": 365
+            },
+            {
+                "size": "S",
+                "stack_mm": 536,
+                "reach_mm": 376
+            },
+            {
+                "size": "M",
+                "stack_mm": 554,
+                "reach_mm": 386
+            },
+            {
+                "size": "L",
+                "stack_mm": 573,
+                "reach_mm": 396
+            },
+            {
+                "size": "XL",
+                "stack_mm": 592,
+                "reach_mm": 405
+            },
+            {
+                "size": "2XL",
+                "stack_mm": 609,
+                "reach_mm": 413
+            }
+        ],
+        "builds": [
+            {
+                "id": "canyon-ultimate-cf-slx-build",
+                "name": "CF SLX 8 Di2",
+                "color": "Standard",
+                "price_eur": 3199,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Ultegra Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "trek-emonda-slr",
+        "brand": "Trek",
+        "model": "Émonda SLR",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Ultra-lightweight climbing bike, one of the lightest production frames available.",
+        "official_url": "https://www.trekbikes.com/es/es_ES/bicicletas/bicicletas-de-carretera/emonda/",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "47",
+                "stack_mm": 496,
+                "reach_mm": 363
+            },
+            {
+                "size": "50",
+                "stack_mm": 511,
+                "reach_mm": 371
+            },
+            {
+                "size": "52",
+                "stack_mm": 527,
+                "reach_mm": 378
+            },
+            {
+                "size": "54",
+                "stack_mm": 541,
+                "reach_mm": 385
+            },
+            {
+                "size": "56",
+                "stack_mm": 556,
+                "reach_mm": 393
+            },
+            {
+                "size": "58",
+                "stack_mm": 572,
+                "reach_mm": 401
+            },
+            {
+                "size": "60",
+                "stack_mm": 588,
+                "reach_mm": 407
+            },
+            {
+                "size": "62",
+                "stack_mm": 605,
+                "reach_mm": 414
+            }
+        ],
+        "builds": [
+            {
+                "id": "trek-emonda-slr-build",
+                "name": "SLR 9",
+                "color": "Standard",
+                "price_eur": 9999,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Dura-Ace Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "scott-addict-rc",
+        "brand": "Scott",
+        "model": "Addict RC",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Superlight all-rounder race bike with HMX-SL carbon frame.",
+        "official_url": "https://www.scott-sports.com/es/es/bikes/road-bikes/race",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "44",
+                "stack_mm": 499,
+                "reach_mm": 363
+            },
+            {
+                "size": "47",
+                "stack_mm": 512,
+                "reach_mm": 371
+            },
+            {
+                "size": "49",
+                "stack_mm": 523,
+                "reach_mm": 378
+            },
+            {
+                "size": "52",
+                "stack_mm": 537,
+                "reach_mm": 384
+            },
+            {
+                "size": "54",
+                "stack_mm": 550,
+                "reach_mm": 391
+            },
+            {
+                "size": "56",
+                "stack_mm": 563,
+                "reach_mm": 398
+            },
+            {
+                "size": "58",
+                "stack_mm": 578,
+                "reach_mm": 404
+            },
+            {
+                "size": "61",
+                "stack_mm": 600,
+                "reach_mm": 413
+            }
+        ],
+        "builds": [
+            {
+                "id": "scott-addict-rc-build",
+                "name": "RC Pro",
+                "color": "Standard",
+                "price_eur": 7499,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Dura-Ace Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "giant-tcr-advanced-pro",
+        "brand": "Giant",
+        "model": "TCR Advanced Pro",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Legendary race bike geometry with Compact Road Design for efficiency.",
+        "official_url": "https://www.giant-bicycles.com/es/tcr-advanced-pro",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "XS",
+                "stack_mm": 530,
+                "reach_mm": 366
+            },
+            {
+                "size": "S",
+                "stack_mm": 547,
+                "reach_mm": 375
+            },
+            {
+                "size": "M",
+                "stack_mm": 563,
+                "reach_mm": 385
+            },
+            {
+                "size": "ML",
+                "stack_mm": 577,
+                "reach_mm": 393
+            },
+            {
+                "size": "L",
+                "stack_mm": 592,
+                "reach_mm": 400
+            },
+            {
+                "size": "XL",
+                "stack_mm": 608,
+                "reach_mm": 408
+            }
+        ],
+        "builds": [
+            {
+                "id": "giant-tcr-advanced-pro-build",
+                "name": "1",
+                "color": "Standard",
+                "price_eur": 3999,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Ultegra Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "bmc-teammachine-slr",
+        "brand": "BMC",
+        "model": "Teammachine SLR",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Swiss-engineered race bike with precision handling and stiffness-to-weight excellence.",
+        "official_url": "https://www.bmc-switzerland.com/es-es/road/teammachine-slr",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "47",
+                "stack_mm": 499,
+                "reach_mm": 369
+            },
+            {
+                "size": "51",
+                "stack_mm": 518,
+                "reach_mm": 377
+            },
+            {
+                "size": "54",
+                "stack_mm": 532,
+                "reach_mm": 384
+            },
+            {
+                "size": "56",
+                "stack_mm": 545,
+                "reach_mm": 391
+            },
+            {
+                "size": "58",
+                "stack_mm": 558,
+                "reach_mm": 398
+            },
+            {
+                "size": "61",
+                "stack_mm": 577,
+                "reach_mm": 409
+            }
+        ],
+        "builds": [
+            {
+                "id": "bmc-teammachine-slr-build",
+                "name": "01 THREE",
+                "color": "Standard",
+                "price_eur": 6499,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Dura-Ace Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "cannondale-supersix-evo",
+        "brand": "Cannondale",
+        "model": "SuperSix EVO Lab71",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "World Tour race weapon with sub-700g frame weight and aggressive geometry.",
+        "official_url": "https://www.cannondale.com/es-es/bikes/road/race/supersix-evo",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "48",
+                "stack_mm": 517,
+                "reach_mm": 368
+            },
+            {
+                "size": "51",
+                "stack_mm": 531,
+                "reach_mm": 376
+            },
+            {
+                "size": "54",
+                "stack_mm": 543,
+                "reach_mm": 383
+            },
+            {
+                "size": "56",
+                "stack_mm": 555,
+                "reach_mm": 391
+            },
+            {
+                "size": "58",
+                "stack_mm": 568,
+                "reach_mm": 398
+            },
+            {
+                "size": "61",
+                "stack_mm": 587,
+                "reach_mm": 409
+            }
+        ],
+        "builds": [
+            {
+                "id": "cannondale-supersix-evo-build",
+                "name": "Lab71",
+                "color": "Standard",
+                "price_eur": 12999,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Dura-Ace Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "orbea-orca",
+        "brand": "Orbea",
+        "model": "Orca OMX",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Lightweight race bike with OMX carbon, highly customizable via MyO program.",
+        "official_url": "https://www.orbea.com/es-es/bicicletas/carretera/orca",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "XS",
+                "stack_mm": 513,
+                "reach_mm": 367
+            },
+            {
+                "size": "S",
+                "stack_mm": 527,
+                "reach_mm": 376
+            },
+            {
+                "size": "M",
+                "stack_mm": 541,
+                "reach_mm": 384
+            },
+            {
+                "size": "L",
+                "stack_mm": 556,
+                "reach_mm": 393
+            },
+            {
+                "size": "XL",
+                "stack_mm": 572,
+                "reach_mm": 401
+            }
+        ],
+        "builds": [
+            {
+                "id": "orbea-orca-build",
+                "name": "OMX",
+                "color": "Standard",
+                "price_eur": 7499,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Dura-Ace Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "cervelo-r5",
+        "brand": "Cervélo",
+        "model": "R5",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "All-rounder race bike engineered for Grand Tour racing with exceptional balance.",
+        "official_url": "https://www.cervelo.com/es-ES/road/r-series/r5",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "48",
+                "stack_mm": 521,
+                "reach_mm": 364
+            },
+            {
+                "size": "51",
+                "stack_mm": 532,
+                "reach_mm": 373
+            },
+            {
+                "size": "54",
+                "stack_mm": 544,
+                "reach_mm": 382
+            },
+            {
+                "size": "56",
+                "stack_mm": 556,
+                "reach_mm": 390
+            },
+            {
+                "size": "58",
+                "stack_mm": 568,
+                "reach_mm": 398
+            },
+            {
+                "size": "61",
+                "stack_mm": 585,
+                "reach_mm": 410
+            }
+        ],
+        "builds": [
+            {
+                "id": "cervelo-r5-build",
+                "name": "Dura-Ace Di2",
+                "color": "Standard",
+                "price_eur": 9299,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Dura-Ace Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "pinarello-dogma-f",
+        "brand": "Pinarello",
+        "model": "Dogma F",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Tour de France winning machine, asymmetric frame design for optimal stiffness.",
+        "official_url": "https://www.pinarello.com/es/bicicletas/dogma-f",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "50",
+                "stack_mm": 513,
+                "reach_mm": 371
+            },
+            {
+                "size": "51.5",
+                "stack_mm": 521,
+                "reach_mm": 377
+            },
+            {
+                "size": "53",
+                "stack_mm": 530,
+                "reach_mm": 383
+            },
+            {
+                "size": "54.5",
+                "stack_mm": 539,
+                "reach_mm": 390
+            },
+            {
+                "size": "56",
+                "stack_mm": 549,
+                "reach_mm": 396
+            },
+            {
+                "size": "57.5",
+                "stack_mm": 558,
+                "reach_mm": 402
+            },
+            {
+                "size": "59",
+                "stack_mm": 568,
+                "reach_mm": 408
+            }
+        ],
+        "builds": [
+            {
+                "id": "pinarello-dogma-f-build",
+                "name": "Dura-Ace Di2",
+                "color": "Standard",
+                "price_eur": 11999,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Dura-Ace Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "colnago-c68",
+        "brand": "Colnago",
+        "model": "C68",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Italian craftsmanship and race pedigree with handcrafted lugged carbon construction.",
+        "official_url": "https://www.colnago.com/es-es/bicicletas/carretera/c68",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "48s",
+                "stack_mm": 513,
+                "reach_mm": 367
+            },
+            {
+                "size": "50s",
+                "stack_mm": 522,
+                "reach_mm": 374
+            },
+            {
+                "size": "52s",
+                "stack_mm": 532,
+                "reach_mm": 381
+            },
+            {
+                "size": "54s",
+                "stack_mm": 543,
+                "reach_mm": 388
+            },
+            {
+                "size": "56s",
+                "stack_mm": 554,
+                "reach_mm": 395
+            },
+            {
+                "size": "58s",
+                "stack_mm": 565,
+                "reach_mm": 402
+            }
+        ],
+        "builds": [
+            {
+                "id": "colnago-c68-build",
+                "name": "Dura-Ace Di2",
+                "color": "Standard",
+                "price_eur": 13999,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Dura-Ace Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "bianchi-oltre-rc",
+        "brand": "Bianchi",
+        "model": "Oltre RC",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Iconic Italian aero race bike with Countervail vibration damping technology.",
+        "official_url": "https://www.bianchi.com/es/bikes/oltre-rc/",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "44",
+                "stack_mm": 508,
+                "reach_mm": 361
+            },
+            {
+                "size": "47",
+                "stack_mm": 521,
+                "reach_mm": 369
+            },
+            {
+                "size": "50",
+                "stack_mm": 531,
+                "reach_mm": 377
+            },
+            {
+                "size": "53",
+                "stack_mm": 543,
+                "reach_mm": 384
+            },
+            {
+                "size": "55",
+                "stack_mm": 554,
+                "reach_mm": 392
+            },
+            {
+                "size": "57",
+                "stack_mm": 565,
+                "reach_mm": 399
+            },
+            {
+                "size": "59",
+                "stack_mm": 578,
+                "reach_mm": 405
+            },
+            {
+                "size": "62",
+                "stack_mm": 596,
+                "reach_mm": 415
+            }
+        ],
+        "builds": [
+            {
+                "id": "bianchi-oltre-rc-build",
+                "name": "Dura-Ace Di2",
+                "color": "Standard",
+                "price_eur": 11999,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Dura-Ace Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "look-795-blade-rs",
+        "brand": "Look",
+        "model": "795 Blade RS",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "French aero masterpiece combining aerodynamics with ride quality.",
+        "official_url": "https://www.lookcycle.com/es-es/road/795-blade-rs",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "XS",
+                "stack_mm": 519,
+                "reach_mm": 369
+            },
+            {
+                "size": "S",
+                "stack_mm": 533,
+                "reach_mm": 378
+            },
+            {
+                "size": "M",
+                "stack_mm": 548,
+                "reach_mm": 387
+            },
+            {
+                "size": "L",
+                "stack_mm": 562,
+                "reach_mm": 396
+            },
+            {
+                "size": "XL",
+                "stack_mm": 578,
+                "reach_mm": 406
+            }
+        ],
+        "builds": [
+            {
+                "id": "look-795-blade-rs-build",
+                "name": "Proteam Ultegra Di2",
+                "color": "Standard",
+                "price_eur": 7499,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Ultegra Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "ridley-noah-fast",
+        "brand": "Ridley",
+        "model": "Noah Fast",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Belgian aero road bike engineered in the wind tunnel for maximum speed.",
+        "official_url": "https://www.ridley-bikes.com/es/bicicletas/carretera/noah-fast",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "XS",
+                "stack_mm": 510,
+                "reach_mm": 369
+            },
+            {
+                "size": "S",
+                "stack_mm": 524,
+                "reach_mm": 379
+            },
+            {
+                "size": "M",
+                "stack_mm": 540,
+                "reach_mm": 388
+            },
+            {
+                "size": "L",
+                "stack_mm": 557,
+                "reach_mm": 397
+            },
+            {
+                "size": "XL",
+                "stack_mm": 573,
+                "reach_mm": 405
+            }
+        ],
+        "builds": [
+            {
+                "id": "ridley-noah-fast-build",
+                "name": "Ultegra Di2",
+                "color": "Standard",
+                "price_eur": 5999,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Ultegra Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    },
+    {
+        "id": "scott-foil-rc",
+        "brand": "Scott",
+        "model": "Foil RC",
+        "year": 2024,
+        "category": "ROAD",
+        "description": "Wind-tunnel-optimized aero race bike for criteriums and flat stages.",
+        "official_url": "https://www.scott-sports.com/es/es/bikes/road-bikes/aero",
+        "dateAdded": "2026-05-04",
+        "geometry": [
+            {
+                "size": "44",
+                "stack_mm": 509,
+                "reach_mm": 364
+            },
+            {
+                "size": "47",
+                "stack_mm": 521,
+                "reach_mm": 372
+            },
+            {
+                "size": "49",
+                "stack_mm": 531,
+                "reach_mm": 379
+            },
+            {
+                "size": "52",
+                "stack_mm": 543,
+                "reach_mm": 386
+            },
+            {
+                "size": "54",
+                "stack_mm": 556,
+                "reach_mm": 393
+            },
+            {
+                "size": "56",
+                "stack_mm": 569,
+                "reach_mm": 400
+            },
+            {
+                "size": "58",
+                "stack_mm": 583,
+                "reach_mm": 407
+            }
+        ],
+        "builds": [
+            {
+                "id": "scott-foil-rc-build",
+                "name": "RC Pro",
+                "color": "Standard",
+                "price_eur": 6999,
+                "images": [],
+                "specs": {
+                    "groupset": "Shimano Dura-Ace Di2",
+                    "wheelset": "Carbon",
+                    "power_meter": "Optional"
+                },
+                "inventory": {
+                    "All": 1
+                }
+            }
+        ]
+    }
+]

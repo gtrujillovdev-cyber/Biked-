@@ -2,10 +2,10 @@ import SwiftUI
 import Combine
 
 struct FavoritesView: View {
-    @State private var viewModel = FavoritesViewModel()
+    @Environment(FavoritesViewModel.self) private var viewModel
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 // Background
                 AppTheme.Gradients.oceanBeep
@@ -56,9 +56,9 @@ struct FavoritesView: View {
                     .padding(.bottom, 30)
                 }
             }
-            .navigationBarHidden(true)
+            .toolbar(.hidden, for: .navigationBar)
             .onAppear {
-                viewModel.loadFavorites()
+                Task { await viewModel.loadFavoriteBikes() }
             }
         }
     }

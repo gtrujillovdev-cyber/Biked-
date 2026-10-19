@@ -6,11 +6,25 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A59A5AA22F6CA8E000937FA1 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = A59A5AA12F6CA8E000937FA1 /* Auth */; };
+		A59A5AA42F6CA8E000937FA1 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = A59A5AA32F6CA8E000937FA1 /* Functions */; };
+		A59A5AA62F6CA8E000937FA1 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = A59A5AA52F6CA8E000937FA1 /* PostgREST */; };
+		A59A5AA82F6CA8E000937FA1 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = A59A5AA72F6CA8E000937FA1 /* Realtime */; };
+		A59A5AAA2F6CA8E000937FA1 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = A59A5AA92F6CA8E000937FA1 /* Storage */; };
+		A59A5AAD2F6CAB2C00937FA1 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = A59A5AAC2F6CAB2C00937FA1 /* Supabase */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		A5EE764E2F40C166001572CC /* Biked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Biked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		A5A2C9B92F42940400AACA7D /* BikeImages */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BikeImages;
+			sourceTree = "<group>";
+		};
 		A5EE76502F40C166001572CC /* Biked */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Biked;
@@ -23,17 +37,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A59A5AA62F6CA8E000937FA1 /* PostgREST in Frameworks */,
+				A59A5AA42F6CA8E000937FA1 /* Functions in Frameworks */,
+				A59A5AAD2F6CAB2C00937FA1 /* Supabase in Frameworks */,
+				A59A5AA22F6CA8E000937FA1 /* Auth in Frameworks */,
+				A59A5AAA2F6CA8E000937FA1 /* Storage in Frameworks */,
+				A59A5AA82F6CA8E000937FA1 /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A59A5AAB2F6CAB2C00937FA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A5EE76452F40C166001572CC = {
 			isa = PBXGroup;
 			children = (
 				A5EE76502F40C166001572CC /* Biked */,
 				A5EE764F2F40C166001572CC /* Products */,
+				A5A2C9B92F42940400AACA7D /* BikeImages */,
+				A59A5AAB2F6CAB2C00937FA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,10 +90,17 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				A5A2C9B92F42940400AACA7D /* BikeImages */,
 				A5EE76502F40C166001572CC /* Biked */,
 			);
 			name = Biked;
 			packageProductDependencies = (
+				A59A5AA12F6CA8E000937FA1 /* Auth */,
+				A59A5AA32F6CA8E000937FA1 /* Functions */,
+				A59A5AA52F6CA8E000937FA1 /* PostgREST */,
+				A59A5AA72F6CA8E000937FA1 /* Realtime */,
+				A59A5AA92F6CA8E000937FA1 /* Storage */,
+				A59A5AAC2F6CAB2C00937FA1 /* Supabase */,
 			);
 			productName = Biked;
 			productReference = A5EE764E2F40C166001572CC /* Biked.app */;
@@ -94,6 +130,9 @@
 			);
 			mainGroup = A5EE76452F40C166001572CC;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A59A5AA02F6CA8E000937FA1 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A5EE764F2F40C166001572CC /* Products */;
 			projectDirPath = "";
@@ -246,6 +285,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RYRF22227J;
@@ -290,6 +330,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RYRF22227J;
@@ -351,6 +392,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A59A5AA02F6CA8E000937FA1 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase-community/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A59A5AA12F6CA8E000937FA1 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A59A5AA02F6CA8E000937FA1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		A59A5AA32F6CA8E000937FA1 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A59A5AA02F6CA8E000937FA1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		A59A5AA52F6CA8E000937FA1 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A59A5AA02F6CA8E000937FA1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		A59A5AA72F6CA8E000937FA1 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A59A5AA02F6CA8E000937FA1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		A59A5AA92F6CA8E000937FA1 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A59A5AA02F6CA8E000937FA1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		A59A5AAC2F6CAB2C00937FA1 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A59A5AA02F6CA8E000937FA1 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A5EE76462F40C166001572CC /* Project object */;
 }

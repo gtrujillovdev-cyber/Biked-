@@ -1,7 +1,9 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @Environment(\.modelContext) private var modelContext
     @State private var favoritesViewModel = FavoritesViewModel()
+    @State private var appSettings = AppSettings.shared
     
     var body: some View {
         TabView {
@@ -20,7 +22,11 @@ struct MainTabView: View {
                     Label("Favoritos", systemImage: "heart")
                 }
         }
+        .onAppear {
+            favoritesViewModel.setContext(modelContext)
+        }
         .environment(favoritesViewModel)
+        .environment(appSettings)
         .tint(AppTheme.Colors.primary)
         .preferredColorScheme(.dark) // Enforce Dark Mode for Premium Feel
     }
