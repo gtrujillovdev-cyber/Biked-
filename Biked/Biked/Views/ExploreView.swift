@@ -53,7 +53,7 @@ struct ExploreView: View {
                             .padding(.horizontal)
                         }
                     }
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 90)
                 }
             }
             .navigationTitle("Explorar")

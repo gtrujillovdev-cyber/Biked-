@@ -3,6 +3,7 @@ import Combine
 
 struct FavoritesView: View {
     @Environment(FavoritesViewModel.self) private var viewModel
+    @State private var showingCompare = false
     
     var body: some View {
         NavigationStack {
@@ -13,12 +14,27 @@ struct FavoritesView: View {
                 
                 ScrollView {
                     VStack(spacing: 20) {
-                        Text("Favoritos")
-                            .font(AppTheme.Fonts.titleLarge)
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal)
-                            .padding(.top, 20)
+                        HStack {
+                            Text("Favoritos")
+                                .font(AppTheme.Fonts.titleLarge)
+                                .foregroundColor(.white)
+                            
+                            Spacer()
+                            
+                            if viewModel.favoriteBikes.count >= 2 {
+                                Button(action: { showingCompare = true }) {
+                                    Label("Comparar", systemImage: "arrow.left.arrow.right")
+                                        .font(.caption.bold())
+                                        .foregroundColor(.black)
+                                        .padding(.horizontal, 12)
+                                        .padding(.vertical, 7)
+                                        .background(AppTheme.Colors.accent)
+                                        .cornerRadius(20)
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, 20)
                         
                         if viewModel.favoriteBikes.isEmpty {
                             VStack(spacing: 20) {
@@ -53,10 +69,13 @@ struct FavoritesView: View {
                             .padding(.horizontal)
                         }
                     }
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 90)
                 }
             }
             .toolbar(.hidden, for: .navigationBar)
+            .sheet(isPresented: $showingCompare) {
+                CompareBikesView(availableBikes: viewModel.favoriteBikes)
+            }
             .onAppear {
                 Task { await viewModel.loadFavoriteBikes() }
             }

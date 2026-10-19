@@ -9,16 +9,81 @@ class SearchViewModel {
         case geometric
     }
     
+    enum RidingPosture: String, CaseIterable, Identifiable {
+        case aero = "Aero / Racing"
+        case sport = "Equilibrada"
+        case comfort = "Gran Fondo"
+        
+        var id: String { rawValue }
+        
+        var shortName: String {
+            switch self {
+            case .aero: return "Aero"
+            case .sport: return "Sport"
+            case .comfort: return "Confort"
+            }
+        }
+        
+        var iconName: String {
+            switch self {
+            case .aero: return "flame.fill"
+            case .sport: return "figure.outdoor.cycle"
+            case .comfort: return "heart.fill"
+            }
+        }
+        
+        var description: String {
+            switch self {
+            case .aero: return "Máxima penetración aerodinámica (cuadro más bajo y alargado)"
+            case .sport: return "Equilibrio polivalente entre rendimiento y ergonomía"
+            case .comfort: return "Posición más erguida, ideal para tiradas largas y confort lumbar"
+            }
+        }
+        
+        var roadStackFactor: Double {
+            switch self {
+            case .aero: return 0.67
+            case .sport: return 0.69
+            case .comfort: return 0.715
+            }
+        }
+        
+        var roadReachFactor: Double {
+            switch self {
+            case .aero: return 0.235
+            case .sport: return 0.225
+            case .comfort: return 0.215
+            }
+        }
+        
+        var ttStackFactor: Double {
+            switch self {
+            case .aero: return 0.63
+            case .sport: return 0.65
+            case .comfort: return 0.675
+            }
+        }
+        
+        var ttReachFactor: Double {
+            switch self {
+            case .aero: return 0.245
+            case .sport: return 0.235
+            case .comfort: return 0.225
+            }
+        }
+    }
+    
     var searchMode: SearchMode = .biometric
+    var selectedPosture: RidingPosture = .sport
     
     // Geometric Inputs
     var userStack: String = ""
     var userReach: String = ""
-    var tolerance: Double = 10.0
+    var tolerance: Double = 18.0
     
     // Biometric Inputs
-    var userHeight: String = ""
-    var userInseam: String = ""
+    var userHeight: String = "178"
+    var userInseam: String = "83"
     var userTrunk: String = ""
     var userArm: String = ""
     
@@ -140,20 +205,24 @@ class SearchViewModel {
             return (nil, nil)
         }
         
-        let stackFactor = selectedCategory == "TT/TRIATLON" ? 0.65 : 0.69
+        let isTT = selectedCategory == "TT/TRIATLON"
+        let stackFactor = isTT ? selectedPosture.ttStackFactor : selectedPosture.roadStackFactor
         let estimatedStack = validInseam * stackFactor * 10
         
         // Reach Estimation logic
         var estimatedReach: Double? = nil
         
         if let validTrunk = t, let validArm = a {
-            // Advanced formula: (Trunk + Arm) * factor
-            // Road: ~ 0.445, TT: ~ 0.465
-            let reachFactor = selectedCategory == "TT/TRIATLON" ? 0.465 : 0.445
-            estimatedReach = (validTrunk + validArm) * reachFactor * 10
+            // Advanced formula: (Trunk + Arm) * posture factor
+            let trunkArmFactor: Double
+            if isTT {
+                trunkArmFactor = selectedPosture == .aero ? 0.485 : (selectedPosture == .sport ? 0.465 : 0.445)
+            } else {
+                trunkArmFactor = selectedPosture == .aero ? 0.465 : (selectedPosture == .sport ? 0.445 : 0.425)
+            }
+            estimatedReach = (validTrunk + validArm) * trunkArmFactor * 10
         } else if let validHeight = h {
-            // Fallback to height proxy
-            let reachFactor = selectedCategory == "TT/TRIATLON" ? 0.235 : 0.225
+            let reachFactor = isTT ? selectedPosture.ttReachFactor : selectedPosture.roadReachFactor
             estimatedReach = validHeight * reachFactor * 10
         }
         

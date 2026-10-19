@@ -2,11 +2,15 @@ import SwiftUI
 
 struct BikeDetailView: View {
     let bike: Bike
-    var matchedGeometry: Geometry? // Option to show matched geometry
+    var matchedGeometry: Geometry? = nil
+    var matchingResult: MatchingResult? = nil
+    var postureName: String? = nil
     
     @Environment(FavoritesViewModel.self) private var favoritesViewModel
     @Environment(AppSettings.self) private var settings
     @State private var selectedBuild: BikeBuild?
+    @State private var showCompareSheet = false
+    @State private var allBikesCache: [Bike] = []
     
     var body: some View {
         ZStack {
@@ -119,6 +123,71 @@ struct BikeDetailView: View {
                         .buttonStyle(PremiumScaleButtonStyle())
                         .accessibilityLabel(favoritesViewModel.isFavorite(bikeId: bike.id) ? "Eliminar de favoritos" : "Añadir a favoritos")
                         
+                        // Biomechanical Fit Prescription Section (if matched)
+                        if let result = matchingResult {
+                            VStack(alignment: .leading, spacing: 12) {
+                                Text("Diagnóstico de Ajuste Biomecánico")
+                                    .font(AppTheme.Fonts.headline)
+                                    .foregroundColor(.white)
+                                
+                                FitReportCardView(result: result, posture: postureName)
+                                
+                                // Share Sheet Button
+                                ShareLink(
+                                    item: "🚴 Prescripción Biomecánica Biked:\n\nModelo: \(bike.brand) \(bike.model)\nTalla Óptima: \(result.matchedSize)\nCompatibilidad: \(Int(result.confidenceScore))% (\(result.fitStatus.rawValue))\n\n• Stack Cuadro: \(Int(result.matchedGeometry.stack))mm (Tu diana: \(Int(result.userStack))mm)\n• Reach Cuadro: \(Int(result.matchedGeometry.reach))mm (Tu diana: \(Int(result.userReach))mm)\n• Espaciadores recomendados: ~\(result.recommendedSpacersMm)mm\n• Potencia sugerida: \(result.recommendedStemLengthMm)mm\n\n\(result.fitSummary)\n\nGenerado con Biked App."
+                                ) {
+                                    HStack {
+                                        Image(systemName: "square.and.arrow.up")
+                                        Text("Compartir Prescripción Biomecánica")
+                                            .font(AppTheme.Fonts.subheadline)
+                                            .fontWeight(.bold)
+                                    }
+                                    .padding(.vertical, 12)
+                                    .frame(maxWidth: .infinity)
+                                    .background(AppTheme.Colors.accent.opacity(0.15))
+                                    .foregroundColor(AppTheme.Colors.accent)
+                                    .cornerRadius(14)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .stroke(AppTheme.Colors.accent.opacity(0.4), lineWidth: 1)
+                                    )
+                                }
+                                .buttonStyle(PremiumScaleButtonStyle())
+                            }
+                            .padding(.top, 6)
+                        }
+                        
+                        // Compare Button
+                        Button(action: {
+                            Haptics.impact(style: .medium)
+                            Task {
+                                if allBikesCache.isEmpty {
+                                    allBikesCache = (try? await BikeAPIService.shared.fetchBikes()) ?? []
+                                }
+                                showCompareSheet = true
+                            }
+                        }) {
+                            HStack {
+                                Image(systemName: "arrow.left.arrow.right")
+                                Text("Comparar Geometría con Otra Bici")
+                                    .font(AppTheme.Fonts.subheadline)
+                                    .fontWeight(.bold)
+                            }
+                            .padding(.vertical, 12)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.white.opacity(0.06))
+                            .foregroundColor(.white)
+                            .cornerRadius(14)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 14)
+                                    .stroke(Color.white.opacity(0.15), lineWidth: 1)
+                            )
+                        }
+                        .buttonStyle(PremiumScaleButtonStyle())
+                        .sheet(isPresented: $showCompareSheet) {
+                            CompareBikesView(availableBikes: allBikesCache.isEmpty ? [bike] : allBikesCache, initialBikeA: bike)
+                        }
+                        
                         // Build Selector
                         if bike.builds.count > 1 {
                             VStack(alignment: .leading, spacing: 12) {
@@ -168,22 +237,29 @@ struct BikeDetailView: View {
                             
                             ForEach(bike.geometry, id: \.size) { geo in
                                 let isMatch = matchedGeometry?.size == geo.size
+                                let str = geo.reach > 0 ? geo.stack / geo.reach : 0
                                 HStack {
-                                    Text("Talla \(geo.size)")
-                                        .font(.subheadline)
-                                        .fontWeight(isMatch ? .bold : .regular)
-                                        .foregroundColor(.white)
-                                        .frame(width: 80, alignment: .leading)
-                                    
-                                    if isMatch {
-                                        Text("RECOMENDADO")
-                                            .font(.caption2)
-                                            .fontWeight(.bold)
-                                            .padding(.horizontal, 6)
-                                            .padding(.vertical, 2)
-                                            .background(Color.green)
-                                            .foregroundColor(.white)
-                                            .cornerRadius(4)
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        HStack(spacing: 6) {
+                                            Text("Talla \(geo.size)")
+                                                .font(.subheadline)
+                                                .fontWeight(isMatch ? .bold : .medium)
+                                                .foregroundColor(.white)
+                                            
+                                            if isMatch {
+                                                Text("RECOMENDADO")
+                                                    .font(.system(size: 8, weight: .black))
+                                                    .padding(.horizontal, 5)
+                                                    .padding(.vertical, 2)
+                                                    .background(Color.green)
+                                                    .foregroundColor(.white)
+                                                    .cornerRadius(4)
+                                            }
+                                        }
+                                        
+                                        Text("STR: \(String(format: "%.2f", str))")
+                                            .font(.system(size: 10))
+                                            .foregroundColor(.gray)
                                     }
                                     
                                     Spacer()
@@ -191,17 +267,22 @@ struct BikeDetailView: View {
                                     let stackDisplay = settings.unitSystem == .metric ? "\(Int(geo.stack))mm" : String(format: "%.1fin", settings.convertFromMm(geo.stack))
                                     let reachDisplay = settings.unitSystem == .metric ? "\(Int(geo.reach))mm" : String(format: "%.1fin", settings.convertFromMm(geo.reach))
                                     
-                                    Text("\(stackDisplay) / \(reachDisplay)")
-                                        .font(.subheadline)
-                                        .fontWeight(isMatch ? .bold : .regular)
-                                        .foregroundColor(isMatch ? .white : .gray)
+                                    VStack(alignment: .trailing, spacing: 2) {
+                                        Text("\(stackDisplay) / \(reachDisplay)")
+                                            .font(.subheadline)
+                                            .fontWeight(isMatch ? .bold : .regular)
+                                            .foregroundColor(isMatch ? .white : .white.opacity(0.8))
+                                        Text("Stack / Reach")
+                                            .font(.system(size: 9))
+                                            .foregroundColor(.gray)
+                                    }
                                 }
-                                .padding(.vertical, 4)
-                                .padding(.horizontal)
-                                .background(isMatch ? AppTheme.Colors.primary.opacity(0.3) : Color.white.opacity(0.05))
-                                .cornerRadius(8)
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 12)
+                                .background(isMatch ? AppTheme.Colors.primary.opacity(0.25) : Color.white.opacity(0.04))
+                                .cornerRadius(10)
                                 .overlay(
-                                    RoundedRectangle(cornerRadius: 8)
+                                    RoundedRectangle(cornerRadius: 10)
                                         .stroke(isMatch ? AppTheme.Colors.primary : Color.clear, lineWidth: 1)
                                 )
                             }

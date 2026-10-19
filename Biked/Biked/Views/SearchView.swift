@@ -166,7 +166,12 @@ struct SearchView: View {
                                     .padding(.horizontal)
                                 
                                 ForEach(viewModel.searchResults) { result in
-                                    NavigationLink(destination: BikeDetailView(bike: result.bike, matchedGeometry: result.matchedGeometry)) {
+                                    NavigationLink(destination: BikeDetailView(
+                                        bike: result.bike,
+                                        matchedGeometry: result.matchedGeometry,
+                                        matchingResult: result,
+                                        postureName: viewModel.searchMode == .biometric ? viewModel.selectedPosture.rawValue : nil
+                                    )) {
                                         BikeMatchCard(result: result)
                                     }
                                 }
@@ -186,7 +191,7 @@ struct SearchView: View {
                             }
                         }
                     }
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 90)
                 }
             }
             .navigationBarHidden(false)
@@ -210,24 +215,69 @@ struct SearchView: View {
     // Sub-views for inputs
     var geometryInputs: some View {
         Group {
-            InputRow(label: "Stack (\(settings.unitSystem.geometryUnit))", value: $viewModel.userStack)
-            InputRow(label: "Reach (\(settings.unitSystem.geometryUnit))", value: $viewModel.userReach)
+            InputRow(label: "Stack (\(settings.unitSystem.geometryUnit))", placeholder: "Ej. 560", value: $viewModel.userStack)
+            InputRow(label: "Reach (\(settings.unitSystem.geometryUnit))", placeholder: "Ej. 385", value: $viewModel.userReach)
         }
     }
     
     var biometricInputs: some View {
         Group {
-            InputRow(label: "Altura (\(settings.unitSystem.heightUnit))", value: $viewModel.userHeight)
-            InputRow(label: "Entrepierna (\(settings.unitSystem.heightUnit))", value: $viewModel.userInseam)
+            InputRow(label: "Altura (\(settings.unitSystem.heightUnit))", placeholder: "Ej. 178", value: $viewModel.userHeight)
+            InputRow(label: "Entrepierna (\(settings.unitSystem.heightUnit))", placeholder: "Ej. 83", value: $viewModel.userInseam)
+            
+            // Posture / Riding Style Selector
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Estilo de Posición")
+                    .font(AppTheme.Fonts.subheadline)
+                    .foregroundColor(.white.opacity(0.8))
+                
+                HStack(spacing: 8) {
+                    ForEach(SearchViewModel.RidingPosture.allCases) { posture in
+                        Button(action: {
+                            Haptics.selection()
+                            withAnimation(.easeInOut(duration: 0.2)) {
+                                viewModel.selectedPosture = posture
+                            }
+                        }) {
+                            VStack(spacing: 4) {
+                                Image(systemName: posture.iconName)
+                                    .font(.system(size: 14))
+                                Text(posture.shortName)
+                                    .font(.caption2)
+                                    .fontWeight(.bold)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                            .background(
+                                viewModel.selectedPosture == posture
+                                ? AppTheme.Colors.primary
+                                : Color.white.opacity(0.06)
+                            )
+                            .foregroundColor(
+                                viewModel.selectedPosture == posture
+                                ? .white
+                                : .white.opacity(0.6)
+                            )
+                            .cornerRadius(10)
+                        }
+                    }
+                }
+                
+                Text(viewModel.selectedPosture.description)
+                    .font(.caption2)
+                    .foregroundColor(AppTheme.Colors.accent.opacity(0.85))
+                    .padding(.horizontal, 2)
+            }
+            .padding(.top, 4)
             
             DisclosureGroup {
                 VStack(spacing: 10) {
-                    InputRow(label: "Tronco (\(settings.unitSystem.heightUnit))", value: $viewModel.userTrunk)
-                    InputRow(label: "Brazo (\(settings.unitSystem.heightUnit))", value: $viewModel.userArm)
+                    InputRow(label: "Tronco (\(settings.unitSystem.heightUnit))", placeholder: "Ej. 62", value: $viewModel.userTrunk)
+                    InputRow(label: "Brazo (\(settings.unitSystem.heightUnit))", placeholder: "Ej. 65", value: $viewModel.userArm)
                 }
                 .padding(.top, 5)
             } label: {
-                Text("Medidas Avanzadas")
+                Text("Medidas Avanzadas (Opcional)")
                     .font(AppTheme.Fonts.subheadline)
                     .foregroundColor(.white.opacity(0.8))
             }
@@ -237,7 +287,7 @@ struct SearchView: View {
             // Only show estimate if we have valid inputs
             if let targetStack = viewModel.targetStack, let targetReach = viewModel.targetReach {
                  VStack(spacing: 5) {
-                    Text("Geometría Estimada:")
+                    Text("Geometría Estimada (\(viewModel.selectedPosture.shortName)):")
                         .font(.caption)
                         .foregroundColor(.gray)
                     Text("Stack: \(Int(targetStack))\(settings.unitSystem.geometryUnit) | Reach: \(Int(targetReach))\(settings.unitSystem.geometryUnit)")
@@ -248,12 +298,13 @@ struct SearchView: View {
                 .padding(.top, 10)
             }
         }
-}
+    }
 }
 
 // Helper View for Input Rows
 struct InputRow: View {
     let label: String
+    var placeholder: String = "0"
     @Binding var value: String
     
     var body: some View {
@@ -262,7 +313,7 @@ struct InputRow: View {
                 .font(AppTheme.Fonts.subheadline)
                 .foregroundColor(.white.opacity(0.8))
             
-            TextField("0", text: $value)
+            TextField(placeholder, text: $value)
                 .keyboardType(.decimalPad)
                 .padding()
                 .background(Color.white.opacity(0.1))
@@ -281,7 +332,22 @@ struct BikeMatchCard: View {
     let result: MatchingResult
     
     var body: some View {
-        HStack(spacing: 15) {
+        VStack(spacing: 8) {
+            topRow
+            deltaBar
+        }
+        .padding(12)
+        .background(Color.black.opacity(0.45))
+        .cornerRadius(16)
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(result.fitStatus.color.opacity(0.35), lineWidth: 1)
+        )
+        .padding(.horizontal)
+    }
+    
+    private var topRow: some View {
+        HStack(spacing: 14) {
             // Bike Thumbnail
             BikeImageView(url: result.bike.mainImage, brand: result.bike.brand, contentMode: .fill)
                 .frame(width: 90, height: 70)
@@ -293,51 +359,89 @@ struct BikeMatchCard: View {
                 )
             
             VStack(alignment: .leading, spacing: 4) {
-                Text(result.bike.brand + " " + result.bike.model)
+                Text("\(result.bike.brand) \(result.bike.model)")
                     .font(.headline)
                     .foregroundColor(.white)
+                    .lineLimit(1)
                 
-                Text(result.bike.category)
-                    .font(.caption)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 2)
-                    .background(AppTheme.Colors.accent.opacity(0.2))
-                    .cornerRadius(4)
-                    .foregroundColor(AppTheme.Colors.accent)
+                HStack(spacing: 6) {
+                    Text(result.bike.category)
+                        .font(.system(size: 10, weight: .semibold))
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(AppTheme.Colors.accent.opacity(0.2))
+                        .cornerRadius(4)
+                        .foregroundColor(AppTheme.Colors.accent)
+                    
+                    Text("Talla: \(result.matchedGeometry.size)")
+                        .font(.system(size: 11, weight: .bold))
+                        .foregroundColor(.white.opacity(0.95))
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.white.opacity(0.1))
+                        .cornerRadius(4)
+                }
                 
-                Text("Talla: \(result.matchedGeometry.size)")
-                    .font(.caption)
-                    .foregroundColor(.white.opacity(0.9))
-                    .padding(.top, 2)
+                // Fit status badge
+                HStack(spacing: 4) {
+                    Image(systemName: result.fitStatus.iconName)
+                        .font(.system(size: 10, weight: .bold))
+                    Text(result.fitStatus.rawValue)
+                        .font(.system(size: 10, weight: .bold))
+                }
+                .foregroundColor(result.fitStatus.color)
             }
             
             Spacer()
             
-            VStack {
+            VStack(alignment: .trailing, spacing: 2) {
                 Text("\(Int(result.confidenceScore))%")
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundColor(scoreColor)
-                Text("Match")
+                    .font(.system(size: 20, weight: .heavy))
+                    .foregroundColor(result.fitStatus.color)
+                
+                Text("Ajuste")
                     .font(.caption2)
                     .foregroundColor(.gray)
                 
                 if result.bike.officialUrl != nil {
                     Image(systemName: "cart.fill")
-                        .font(.caption)
-                        .foregroundColor(.green)
-                        .padding(.top, 4)
+                        .font(.caption2)
+                        .foregroundColor(.green.opacity(0.8))
+                        .padding(.top, 2)
                 }
             }
         }
-        .padding()
-        .background(Color.black.opacity(0.4))
-        .cornerRadius(15)
-        .padding(.horizontal)
     }
     
-    var scoreColor: Color {
-        if result.confidenceScore >= 90 { return .green }
-        if result.confidenceScore >= 75 { return .yellow }
-        return .orange
+    private var deltaBar: some View {
+        let dStack = Int(round(result.stackDifference))
+        let dReach = Int(round(result.reachDifference))
+        let stackColor: Color = abs(dStack) <= 15 ? .green : (abs(dStack) <= 25 ? .yellow : .orange)
+        let reachColor: Color = abs(dReach) <= 10 ? .green : (abs(dReach) <= 18 ? .yellow : .orange)
+        let dStackStr = dStack >= 0 ? "+\(dStack)" : "\(dStack)"
+        let dReachStr = dReach >= 0 ? "+\(dReach)" : "\(dReach)"
+        
+        return HStack {
+            Text("ΔS: \(dStackStr)mm")
+                .font(.system(size: 11, weight: .medium, design: .monospaced))
+                .foregroundColor(stackColor)
+            
+            Text("•")
+                .foregroundColor(.white.opacity(0.3))
+            
+            Text("ΔR: \(dReachStr)mm")
+                .font(.system(size: 11, weight: .medium, design: .monospaced))
+                .foregroundColor(reachColor)
+            
+            Spacer()
+            
+            Text("STR \(String(format: "%.2f", result.strRatio)) (\(result.strCategory))")
+                .font(.system(size: 10, weight: .medium))
+                .foregroundColor(.white.opacity(0.6))
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 5)
+        .background(Color.white.opacity(0.04))
+        .cornerRadius(8)
     }
 }
