@@ -8,6 +8,14 @@ struct CompareBikesView: View {
     @State private var bikeB: Bike
     @State private var selectedSizeA: String
     @State private var selectedSizeB: String
+    @State private var selectedTab: ComparisonTab = .all
+    
+    enum ComparisonTab: String, CaseIterable, Identifiable {
+        case all = "Todo"
+        case diagram = "Diagrama"
+        case table = "Tabla"
+        var id: String { rawValue }
+    }
     
     init(availableBikes: [Bike], initialBikeA: Bike? = nil, initialBikeB: Bike? = nil) {
         self.availableBikes = availableBikes
@@ -71,10 +79,33 @@ struct CompareBikesView: View {
                                 .padding(.horizontal)
                         }
                         
+                        // Tab Selector
+                        Picker("Modo", selection: $selectedTab) {
+                            ForEach(ComparisonTab.allCases) { tab in
+                                Text(tab.rawValue).tag(tab)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                        .padding(.horizontal)
+                        
+                        // Vector Wireframe Blueprint Diagram
+                        if (selectedTab == .all || selectedTab == .diagram), let gA = geoA, let gB = geoB {
+                            GeometryWireframeView(
+                                geoA: gA,
+                                geoB: gB,
+                                nameA: bikeA.model,
+                                nameB: bikeB.model,
+                                sizeA: selectedSizeA,
+                                sizeB: selectedSizeB
+                            )
+                            .transition(.opacity)
+                        }
+                        
                         // Detailed Metric Comparison Table
-                        if let gA = geoA, let gB = geoB {
+                        if (selectedTab == .all || selectedTab == .table), let gA = geoA, let gB = geoB {
                             comparisonTable(gA: gA, gB: gB)
                                 .padding(.horizontal)
+                                .transition(.opacity)
                         }
                     }
                     .padding(.bottom, 40)

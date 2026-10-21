@@ -78,23 +78,29 @@ struct BikeDetailView: View {
                         // Official Link Button
                         if let urlString = bike.officialUrl, let url = URL(string: urlString) {
                             Link(destination: url) {
-                                HStack {
-                                    Text("EXPLORAR EN WEB OFICIAL")
-                                        .fontWeight(.black)
+                                HStack(spacing: 8) {
+                                    Image(systemName: "safari.fill")
                                         .font(.subheadline)
-                                    Image(systemName: "arrow.up.right.square.fill")
+                                    Text("VER EN WEB OFICIAL DE \(bike.brand.uppercased())")
+                                        .fontWeight(.heavy)
+                                        .font(.caption)
+                                        .kerning(0.8)
+                                    Spacer()
+                                    Image(systemName: "arrow.up.right")
+                                        .font(.caption.bold())
                                 }
-                                .padding(.vertical, 16)
+                                .padding(.horizontal, 18)
+                                .padding(.vertical, 14)
                                 .frame(maxWidth: .infinity)
                                 .background(AppTheme.Gradients.primary)
                                 .foregroundColor(.white)
                                 .cornerRadius(16)
-                                .shadow(color: AppTheme.Colors.primary.opacity(0.3), radius: 10, x: 0, y: 5)
+                                .shadow(color: AppTheme.Colors.primary.opacity(0.35), radius: 8, x: 0, y: 4)
                             }
                             .buttonStyle(PremiumScaleButtonStyle())
-                            .accessibilityLabel("Comprar en sitio web oficial")
-                            .accessibilityHint("Abre el sitio web de la marca en el navegador")
-                            .padding(.vertical, 10)
+                            .accessibilityLabel("Ver en sitio web oficial de \(bike.brand)")
+                            .accessibilityHint("Abre el catálogo oficial del fabricante en el navegador")
+                            .padding(.vertical, 4)
                         }
                         
                         Divider().background(Color.white.opacity(0.15))

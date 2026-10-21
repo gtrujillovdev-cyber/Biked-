@@ -6,7 +6,7 @@
         "year": 2024,
         "category": "ROAD",
         "description": "High performance Aero bike from Trek.",
-        "official_url": "",
+        "official_url": "https://www.trekbikes.com/es/es_ES/bicicletas/bicicletas-de-carretera/bicicletas-de-carretera-de-rendimiento/madone/madone-slr/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -68,7 +68,7 @@
         "year": 2024,
         "category": "ROAD",
         "description": "High performance Aero bike from Canyon.",
-        "official_url": "",
+        "official_url": "https://www.canyon.com/en-es/road-bikes/aero-bikes/aeroad/aeroad-cfr/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -125,7 +125,7 @@
         "year": 2024,
         "category": "ROAD",
         "description": "High performance Aero bike from Wilier.",
-        "official_url": "",
+        "official_url": "https://wilier.com/es/my2024/bicicletas/carretera/filante-slr",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -182,7 +182,7 @@
         "year": 2024,
         "category": "ROAD",
         "description": "High performance All-Rounder bike from Specialized.",
-        "official_url": "",
+        "official_url": "https://www.specialized.com/es/es/s-works-tarmac-sl8",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -249,7 +249,7 @@
         "year": 2024,
         "category": "ROAD",
         "description": "High performance Aero bike from Merida.",
-        "official_url": "",
+        "official_url": "https://www.merida-bikes.com/es-es/bike/4143/reacto-team",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -306,7 +306,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Cervélo.",
-        "official_url": "",
+        "official_url": "https://cervelo.com/en/p5",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -350,7 +350,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Cervélo.",
-        "official_url": "",
+        "official_url": "https://cervelo.com/en/p-series",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -394,7 +394,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Cervélo.",
-        "official_url": "",
+        "official_url": "https://cervelo.com/en/px-series",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -438,7 +438,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Canyon.",
-        "official_url": "",
+        "official_url": "https://www.canyon.com/en-es/road-bikes/triathlon-bikes/speedmax/cfr/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -482,7 +482,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Canyon.",
-        "official_url": "",
+        "official_url": "https://www.canyon.com/en-es/road-bikes/triathlon-bikes/speedmax/tt/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -526,7 +526,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Canyon.",
-        "official_url": "",
+        "official_url": "https://www.canyon.com/en-es/road-bikes/triathlon-bikes/speedmax/cf/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -570,7 +570,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Trek.",
-        "official_url": "",
+        "official_url": "https://www.trekbikes.com/es/es_ES/bicicletas/bicicletas-de-carretera/bicicletas-de-triatl%C3%B3n/speed-concept/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -614,7 +614,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Specialized.",
-        "official_url": "",
+        "official_url": "https://www.specialized.com/es/es/s-works-shiv-disc",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -658,7 +658,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Specialized.",
-        "official_url": "",
+        "official_url": "https://www.specialized.com/es/es/s-works-shiv-tt-disc",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -702,7 +702,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Scott.",
-        "official_url": "",
+        "official_url": "https://www.scott-sports.com/es/es/products/bike-bikes-road-triathlon",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -746,7 +746,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from BMC.",
-        "official_url": "",
+        "official_url": "https://www.bmc-switzerland.com/es/road/aero/timemachine.html",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -790,7 +790,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Pinarello.",
-        "official_url": "",
+        "official_url": "https://pinarello.com/global/en/bikes/road/time-trial/bolide-f-hr",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -834,7 +834,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Colnago.",
-        "official_url": "",
+        "official_url": "https://www.colnago.com/es/bikes/tt1",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -878,7 +878,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Factor.",
-        "official_url": "",
+        "official_url": "https://factorbikes.com/bikes/hanzo/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -922,7 +922,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Wilier.",
-        "official_url": "",
+        "official_url": "https://wilier.com/es/my2024/bicicletas/triathlon-crono/supersonica-slr",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -966,7 +966,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Felt.",
-        "official_url": "",
+        "official_url": "https://feltbicycles.com/pages/ia-2",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1010,7 +1010,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Quintana Roo.",
-        "official_url": "",
+        "official_url": "https://quintanarootri.com/products/v-pri",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1054,7 +1054,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Argon 18.",
-        "official_url": "",
+        "official_url": "https://www.argon18.com/en/bikes/triathlon/e-119-tri-plus-disc",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1098,7 +1098,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Orbea.",
-        "official_url": "",
+        "official_url": "https://www.orbea.com/es-es/bicicletas/triatlon/ordu/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1142,7 +1142,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Giant.",
-        "official_url": "",
+        "official_url": "https://www.giant-bicycles.com/es/trinity-advanced-pro",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1186,7 +1186,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Cadex.",
-        "official_url": "",
+        "official_url": "https://www.cadex-cycling.com/es/tri-frameset",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1230,7 +1230,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Cube.",
-        "official_url": "",
+        "official_url": "https://www.cube.eu/es-es/bikes/road/triathlon-time-trial/aerium",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1274,7 +1274,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Diamondback.",
-        "official_url": "",
+        "official_url": "https://www.diamondback.com/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1318,7 +1318,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Ventum.",
-        "official_url": "",
+        "official_url": "https://ventumracing.com/bikes/one/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1362,7 +1362,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Ceepo.",
-        "official_url": "",
+        "official_url": "https://www.ceepobikes.com/shadow-r",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1406,7 +1406,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from TriRig.",
-        "official_url": "",
+        "official_url": "https://tririg.com/pages/omni",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1450,7 +1450,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Ribble.",
-        "official_url": "",
+        "official_url": "https://www.ribblecycles.co.uk/ribble-ultra-tt/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1494,7 +1494,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Kestrel.",
-        "official_url": "",
+        "official_url": "https://www.kestrelbicycles.com/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1538,7 +1538,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Berria.",
-        "official_url": "",
+        "official_url": "https://berriabikes.com/",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1582,7 +1582,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from BH.",
-        "official_url": "",
+        "official_url": "https://www.bhbikes.com/es_ES/bicicletas/carretera/aero/aerolight",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1626,7 +1626,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Cipollini.",
-        "official_url": "",
+        "official_url": "https://www.mcipollini.com/bikes/nktt",
         "dateAdded": "2026-02-20",
         "geometry": [
             {
@@ -1670,7 +1670,7 @@
         "year": 2024,
         "category": "TT",
         "description": "High performance Triathlon/TT bike from Ridley.",
-        "official_url": "",
+        "official_url": "https://www.ridley-bikes.com/es_ES/bikes/platform/dean-fast",
         "dateAdded": "2026-02-20",
         "geometry": [
             {

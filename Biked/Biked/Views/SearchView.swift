@@ -368,8 +368,9 @@ struct BikeMatchCard: View {
     private var topRow: some View {
         HStack(spacing: 14) {
             // Bike Thumbnail
-            BikeImageView(url: result.bike.mainImage, brand: result.bike.brand, contentMode: .fill)
-                .frame(width: 90, height: 70)
+            BikeImageView(url: result.bike.mainImage, brand: result.bike.brand, contentMode: .fit)
+                .frame(width: 90, height: 60)
+                .background(Color.white.opacity(0.04))
                 .cornerRadius(12)
                 .clipped()
                 .overlay(
