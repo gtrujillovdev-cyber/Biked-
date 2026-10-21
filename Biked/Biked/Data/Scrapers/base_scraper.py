@@ -120,9 +120,14 @@ class BrandScraper:
                 brand_id = brand_res.json()[0]['id']
             else:
                 # Fallback fetch
-                brand_id = requests.get(f"{url}/rest/v1/brands", 
-                                      headers=headers, 
-                                      params={"name": f"eq.{self.brand_name}"}).json()[0]['id']
+                fetch_res = requests.get(f"{url}/rest/v1/brands", 
+                                        headers=headers, 
+                                        params={"name": f"eq.{self.brand_name}"})
+                brand_data = fetch_res.json()
+                if not brand_data:
+                    print(f"Error: No se pudo resolver brand_id para {self.brand_name}")
+                    return
+                brand_id = brand_data[0]['id']
 
             # 2. Upsert Model
             model_payload = {
@@ -140,13 +145,18 @@ class BrandScraper:
             if model_res.status_code in [200, 201] and model_res.json():
                 model_id = model_res.json()[0]['id']
             else:
-                model_id = requests.get(f"{url}/rest/v1/models", 
-                                      headers=headers, 
-                                      params={
-                                          "brand_id": f"eq.{brand_id}",
-                                          "name": f"eq.{bike_data['model']}",
-                                          "year": f"eq.{model_payload['year']}"
-                                      }).json()[0]['id']
+                model_res_fetch = requests.get(f"{url}/rest/v1/models", 
+                                              headers=headers, 
+                                              params={
+                                                  "brand_id": f"eq.{brand_id}",
+                                                  "name": f"eq.{bike_data['model']}",
+                                                  "year": f"eq.{model_payload['year']}"
+                                              })
+                model_data = model_res_fetch.json()
+                if not model_data:
+                    print(f"Error: No se pudo resolver model_id para {bike_data['model']}")
+                    return
+                model_id = model_data[0]['id']
 
             # 3. Geometries
             for geo in bike_data['geometry']:

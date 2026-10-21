@@ -2,6 +2,7 @@ import SwiftUI
 import Observation
 
 @Observable
+@MainActor
 class ExploreViewModel {
     var bikes: [Bike] = []
     var isLoading = false
@@ -13,19 +14,23 @@ class ExploreViewModel {
             return bikes
         } else if selectedCategory == "CARRETERA" {
             return bikes.filter { $0.category == "ROAD" }
-        } else {
+        } else if selectedCategory == "TT/TRIATLON" {
             return bikes.filter { $0.category == "TT" }
+        } else {
+            return bikes.filter { $0.category == selectedCategory }
         }
     }
     
-    func fetchBikes() async {
+    func fetchBikes(forceRefresh: Bool = false) async {
         isLoading = true
         errorMessage = nil
         
         do {
-            bikes = try await BikeAPIService.shared.fetchBikes()
+            bikes = try await BikeAPIService.shared.fetchBikes(forceRefresh: forceRefresh)
         } catch {
-            errorMessage = "No se pudieron cargar las bicicletas. Verifica tu conexión."
+            if bikes.isEmpty {
+                errorMessage = "No se pudieron cargar las bicicletas. Verifica tu conexión."
+            }
             print("Error loading bikes: \(error)")
         }
         

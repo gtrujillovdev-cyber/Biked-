@@ -61,3 +61,20 @@ CREATE TABLE contributions (
     status TEXT DEFAULT 'PENDING' CHECK (status IN ('PENDING', 'PROCESSED', 'REJECTED')),
     created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+
+-- 6. Row Level Security (RLS) Configuration
+ALTER TABLE brands ENABLE ROW LEVEL SECURITY;
+ALTER TABLE models ENABLE ROW LEVEL SECURITY;
+ALTER TABLE geometries ENABLE ROW LEVEL SECURITY;
+ALTER TABLE builds ENABLE ROW LEVEL SECURITY;
+ALTER TABLE contributions ENABLE ROW LEVEL SECURITY;
+
+-- Lectura pública para el catálogo
+CREATE POLICY "Public Read Brands" ON brands FOR SELECT USING (true);
+CREATE POLICY "Public Read Models" ON models FOR SELECT USING (true);
+CREATE POLICY "Public Read Geometries" ON geometries FOR SELECT USING (true);
+CREATE POLICY "Public Read Builds" ON builds FOR SELECT USING (true);
+
+-- Envío anónimo de contribuciones (estado PENDING obligatorio)
+CREATE POLICY "Public Insert Contributions" ON contributions FOR INSERT WITH CHECK (status = 'PENDING');
+

@@ -8,10 +8,10 @@ sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "Scrape
 
 from base_scraper import BrandScraper
 
-# CONFIGURATION
+# CONFIGURATION (Loaded from environment variables, fallback to defaults)
 SUPABASE_CONFIG = {
-    "url": "https://tvzfyptiouihtitlapcv.supabase.co",
-    "key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR2emZ5cHRpb3VpaHRpdGxhcGN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2OTI3NTAsImV4cCI6MjA4OTI2ODc1MH0.f-WZVWNaXYOcyIHm8XrI8ZXFzeAhGm1Oyl2-k_Dv79g"
+    "url": os.getenv("SUPABASE_URL", "https://tvzfyptiouihtitlapcv.supabase.co"),
+    "key": os.getenv("SUPABASE_SERVICE_ROLE_KEY") or os.getenv("SUPABASE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR2emZ5cHRpb3VpaHRpdGxhcGN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2OTI3NTAsImV4cCI6MjA4OTI2ODc1MH0.f-WZVWNaXYOcyIHm8XrI8ZXFzeAhGm1Oyl2-k_Dv79g")
 }
 
 JSON_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Resources", "bikes.json")

@@ -3,6 +3,7 @@ import SwiftUI
 import Combine
 
 @Observable
+@MainActor
 class SearchViewModel {
     enum SearchMode {
         case biometric
@@ -82,8 +83,8 @@ class SearchViewModel {
     var tolerance: Double = 18.0
     
     // Biometric Inputs
-    var userHeight: String = "178"
-    var userInseam: String = "83"
+    var userHeight: String
+    var userInseam: String
     var userTrunk: String = ""
     var userArm: String = ""
     
@@ -98,7 +99,11 @@ class SearchViewModel {
     // Evita llamar a estimateTargetGeometry() dos veces por render cycle
     var targetGeometry: (stack: Double?, reach: Double?) {
         if searchMode == .geometric {
-            return (Double(userStack), Double(userReach))
+            guard let s = Double(userStack.replacingOccurrences(of: ",", with: ".")),
+                  let r = Double(userReach.replacingOccurrences(of: ",", with: ".")) else {
+                return (nil, nil)
+            }
+            return (settings.convertToMm(s), settings.convertToMm(r))
         } else {
             return estimateTargetGeometry()
         }
@@ -108,11 +113,51 @@ class SearchViewModel {
     var targetReach: Double? { targetGeometry.reach }
     
     private let apiService: BikeAPIService
-    private let settings: AppSettings
+    let settings: AppSettings
     
     init(apiService: BikeAPIService = .shared, settings: AppSettings = .shared) {
         self.apiService = apiService
         self.settings = settings
+        if settings.unitSystem == .imperial {
+            self.userHeight = "70"
+            self.userInseam = "32.5"
+        } else {
+            self.userHeight = "178"
+            self.userInseam = "83"
+        }
+    }
+    
+    func syncUnits(previousUnit: AppSettings.UnitSystem, newUnit: AppSettings.UnitSystem) {
+        guard previousUnit != newUnit else { return }
+        
+        func convertLength(_ str: String) -> String {
+            guard let val = Double(str.replacingOccurrences(of: ",", with: ".")) else { return str }
+            if newUnit == .imperial {
+                let inches = val / 2.54
+                return String(format: "%.1f", inches)
+            } else {
+                let cm = val * 2.54
+                return String(format: "%.0f", cm)
+            }
+        }
+        
+        func convertGeo(_ str: String) -> String {
+            guard let val = Double(str.replacingOccurrences(of: ",", with: ".")) else { return str }
+            if newUnit == .imperial {
+                let inches = val / 25.4
+                return String(format: "%.1f", inches)
+            } else {
+                let mm = val * 25.4
+                return String(format: "%.0f", mm)
+            }
+        }
+        
+        if !userHeight.isEmpty { userHeight = convertLength(userHeight) }
+        if !userInseam.isEmpty { userInseam = convertLength(userInseam) }
+        if !userTrunk.isEmpty { userTrunk = convertLength(userTrunk) }
+        if !userArm.isEmpty { userArm = convertLength(userArm) }
+        if !userStack.isEmpty { userStack = convertGeo(userStack) }
+        if !userReach.isEmpty { userReach = convertGeo(userReach) }
     }
     
     func search() async {
@@ -172,8 +217,10 @@ class SearchViewModel {
             let filteredBikes = bikes.filter { bike in
                 if selectedCategory == "CARRETERA" {
                     return bike.category == "ROAD"
-                } else {
+                } else if selectedCategory == "TT/TRIATLON" {
                     return bike.category == "TT"
+                } else {
+                    return bike.category == selectedCategory
                 }
             }
             

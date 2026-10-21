@@ -15,11 +15,10 @@ struct BikeGeometryFinderApp: App {
                     MainTabView()
                 }
             }
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                    withAnimation(.easeInOut(duration: 0.8)) {
-                        showSplash = false
-                    }
+            .task {
+                try? await Task.sleep(nanoseconds: 2_000_000_000)
+                withAnimation(.easeInOut(duration: 0.8)) {
+                    showSplash = false
                 }
             }
         }

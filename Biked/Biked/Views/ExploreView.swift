@@ -55,6 +55,10 @@ struct ExploreView: View {
                     }
                     .padding(.bottom, 90)
                 }
+                .refreshable {
+                    Haptics.impact(style: .light)
+                    await viewModel.fetchBikes(forceRefresh: true)
+                }
             }
             .navigationTitle("Explorar")
             .navigationBarTitleDisplayMode(.large)

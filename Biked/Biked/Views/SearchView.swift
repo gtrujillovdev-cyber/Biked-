@@ -209,21 +209,31 @@ struct SearchView: View {
                     }
                 }
             }
+            .onChange(of: settings.unitSystem) { oldValue, newValue in
+                viewModel.syncUnits(previousUnit: oldValue, newUnit: newValue)
+            }
         }
     }
     
     // Sub-views for inputs
     var geometryInputs: some View {
         Group {
-            InputRow(label: "Stack (\(settings.unitSystem.geometryUnit))", placeholder: "Ej. 560", value: $viewModel.userStack)
-            InputRow(label: "Reach (\(settings.unitSystem.geometryUnit))", placeholder: "Ej. 385", value: $viewModel.userReach)
+            let stackPlaceholder = settings.unitSystem == .metric ? "Ej. 560" : "Ej. 22"
+            let reachPlaceholder = settings.unitSystem == .metric ? "Ej. 385" : "Ej. 15"
+            InputRow(label: "Stack (\(settings.unitSystem.geometryUnit))", placeholder: stackPlaceholder, value: $viewModel.userStack)
+            InputRow(label: "Reach (\(settings.unitSystem.geometryUnit))", placeholder: reachPlaceholder, value: $viewModel.userReach)
         }
     }
     
     var biometricInputs: some View {
         Group {
-            InputRow(label: "Altura (\(settings.unitSystem.heightUnit))", placeholder: "Ej. 178", value: $viewModel.userHeight)
-            InputRow(label: "Entrepierna (\(settings.unitSystem.heightUnit))", placeholder: "Ej. 83", value: $viewModel.userInseam)
+            let heightPlaceholder = settings.unitSystem == .metric ? "Ej. 178" : "Ej. 70"
+            let inseamPlaceholder = settings.unitSystem == .metric ? "Ej. 83" : "Ej. 32.5"
+            let trunkPlaceholder = settings.unitSystem == .metric ? "Ej. 62" : "Ej. 24.5"
+            let armPlaceholder = settings.unitSystem == .metric ? "Ej. 65" : "Ej. 25.5"
+            
+            InputRow(label: "Altura (\(settings.unitSystem.heightUnit))", placeholder: heightPlaceholder, value: $viewModel.userHeight)
+            InputRow(label: "Entrepierna (\(settings.unitSystem.heightUnit))", placeholder: inseamPlaceholder, value: $viewModel.userInseam)
             
             // Posture / Riding Style Selector
             VStack(alignment: .leading, spacing: 8) {
@@ -272,8 +282,8 @@ struct SearchView: View {
             
             DisclosureGroup {
                 VStack(spacing: 10) {
-                    InputRow(label: "Tronco (\(settings.unitSystem.heightUnit))", placeholder: "Ej. 62", value: $viewModel.userTrunk)
-                    InputRow(label: "Brazo (\(settings.unitSystem.heightUnit))", placeholder: "Ej. 65", value: $viewModel.userArm)
+                    InputRow(label: "Tronco (\(settings.unitSystem.heightUnit))", placeholder: trunkPlaceholder, value: $viewModel.userTrunk)
+                    InputRow(label: "Brazo (\(settings.unitSystem.heightUnit))", placeholder: armPlaceholder, value: $viewModel.userArm)
                 }
                 .padding(.top, 5)
             } label: {
@@ -286,11 +296,14 @@ struct SearchView: View {
             
             // Only show estimate if we have valid inputs
             if let targetStack = viewModel.targetStack, let targetReach = viewModel.targetReach {
-                 VStack(spacing: 5) {
+                let stackDisplay = settings.unitSystem == .metric ? "\(Int(targetStack))mm" : String(format: "%.1fin", settings.convertFromMm(targetStack))
+                let reachDisplay = settings.unitSystem == .metric ? "\(Int(targetReach))mm" : String(format: "%.1fin", settings.convertFromMm(targetReach))
+                
+                VStack(spacing: 5) {
                     Text("Geometría Estimada (\(viewModel.selectedPosture.shortName)):")
                         .font(.caption)
                         .foregroundColor(.gray)
-                    Text("Stack: \(Int(targetStack))\(settings.unitSystem.geometryUnit) | Reach: \(Int(targetReach))\(settings.unitSystem.geometryUnit)")
+                    Text("Stack: \(stackDisplay) | Reach: \(reachDisplay)")
                         .font(.callout)
                         .fontWeight(.bold)
                         .foregroundColor(.white)

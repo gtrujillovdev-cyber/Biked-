@@ -24,7 +24,7 @@ enum FitStatus: String, CaseIterable {
 }
 
 struct MatchingResult: Identifiable, Hashable {
-    let id = UUID()
+    var id: String { "\(bike.id)-\(matchedGeometry.size)" }
     let bike: Bike
     let matchedGeometry: Geometry
     let userStack: Double

@@ -4,6 +4,7 @@ import Combine
 import SwiftData
 
 @Observable
+@MainActor
 class FavoritesViewModel {
     var favoriteBikes: [Bike] = []
 
@@ -68,9 +69,7 @@ class FavoritesViewModel {
                 allBikesCache = try await apiService.fetchBikes()
             }
 
-            await MainActor.run {
-                self.favoriteBikes = allBikesCache.filter { favoriteIDs.contains($0.id) }
-            }
+            self.favoriteBikes = allBikesCache.filter { favoriteIDs.contains($0.id) }
         } catch {
             print("Error loading favorite bikes: \(error)")
         }

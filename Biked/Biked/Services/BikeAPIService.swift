@@ -1,6 +1,6 @@
 import Foundation
 
-class BikeAPIService {
+actor BikeAPIService {
     static let shared = BikeAPIService()
     
     // In-memory cache for instant navigation and UI responsiveness
@@ -16,12 +16,12 @@ class BikeAPIService {
         let cacheURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("bikes_cache.json")
         
-        // 2. Local-First: Load from bundle or cache immediately so UI never blocks
+        // 2. Local-First: Prefer persisted disk cache (newer synced data) with bundle as fallback
         if cachedBikes.isEmpty {
-            if let localBikes = loadLocalBundleData() {
-                cachedBikes = localBikes
-            } else if let diskBikes = loadDiskCache(from: cacheURL) {
+            if let diskBikes = loadDiskCache(from: cacheURL), !diskBikes.isEmpty {
                 cachedBikes = diskBikes
+            } else if let localBikes = loadLocalBundleData() {
+                cachedBikes = localBikes
             }
         }
         

@@ -76,7 +76,7 @@ struct Bike: Identifiable, Codable, Hashable {
         
         // 3. Fallback: Reconstruct Supabase Public Storage URL
         // Used for paths coming from the database that might not have the full domain
-        let publicStorageBase = "https://tvzfyptiouihtitlapcv.supabase.co/storage/v1/object/public/bike-images/"
+        let publicStorageBase = SupabaseConfig.storageBaseURL.absoluteString
         
         // If the URL string itself already contains 'bike-images', we might just need the base domain
         let urlString = url.absoluteString
@@ -96,6 +96,14 @@ struct Bike: Identifiable, Codable, Hashable {
     
     let dateAdded: String?
     
+    private static let isoDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return formatter
+    }()
+    
     enum CodingKeys: String, CodingKey {
         case id, brand, model, year, category, description, geometry, builds
         case officialUrl = "official_url"
@@ -103,10 +111,8 @@ struct Bike: Identifiable, Codable, Hashable {
     }
     
     var isNew: Bool {
-        guard let dateString = dateAdded else { return false }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        guard let date = formatter.date(from: dateString) else { return false }
+        guard let dateString = dateAdded,
+              let date = Bike.isoDateFormatter.date(from: dateString) else { return false }
         
         // Consider it new if added in the last 30 days
         let thirtyDaysAgo = Calendar.current.date(byAdding: .day, value: -30, to: Date()) ?? Date()

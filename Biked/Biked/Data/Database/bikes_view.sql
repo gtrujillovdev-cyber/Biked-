@@ -3,8 +3,10 @@ ALTER TABLE brands ENABLE ROW LEVEL SECURITY;
 ALTER TABLE models ENABLE ROW LEVEL SECURITY;
 ALTER TABLE geometries ENABLE ROW LEVEL SECURITY;
 ALTER TABLE builds ENABLE ROW LEVEL SECURITY;
+ALTER TABLE IF EXISTS contributions ENABLE ROW LEVEL SECURITY;
 
--- 2. Create Public Policies (to allow app fetching and scraper seeding)
+-- 2. Create Public Read-Only Policies for App Clients
+-- Permite lectura pública anónima (SELECT) para el catálogo de bicicletas
 DROP POLICY IF EXISTS "Public Access Select" ON brands;
 DROP POLICY IF EXISTS "Public Access Select" ON models;
 DROP POLICY IF EXISTS "Public Access Select" ON geometries;
@@ -15,48 +17,41 @@ CREATE POLICY "Public Access Select" ON models FOR SELECT USING (true);
 CREATE POLICY "Public Access Select" ON geometries FOR SELECT USING (true);
 CREATE POLICY "Public Access Select" ON builds FOR SELECT USING (true);
 
+-- Eliminar políticas públicas permisivas de INSERT y UPDATE para prevenir manipulación no autorizada.
+-- NOTA DE SEGURIDAD: La clave anon (pública en la app) NUNCA debe tener permisos de escritura.
+-- Los scripts de scraping y administración usan la clave privada SUPABASE_SERVICE_ROLE_KEY
+-- que omite RLS de forma segura en el servidor.
 DROP POLICY IF EXISTS "Allow Public Insert" ON brands;
 DROP POLICY IF EXISTS "Allow Public Insert" ON models;
 DROP POLICY IF EXISTS "Allow Public Insert" ON geometries;
 DROP POLICY IF EXISTS "Allow Public Insert" ON builds;
-
-CREATE POLICY "Allow Public Insert" ON brands FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow Public Insert" ON models FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow Public Insert" ON geometries FOR INSERT WITH CHECK (true);
-CREATE POLICY "Allow Public Insert" ON builds FOR INSERT WITH CHECK (true);
 
 DROP POLICY IF EXISTS "Allow Public Update" ON brands;
 DROP POLICY IF EXISTS "Allow Public Update" ON models;
 DROP POLICY IF EXISTS "Allow Public Update" ON geometries;
 DROP POLICY IF EXISTS "Allow Public Update" ON builds;
 
-CREATE POLICY "Allow Public Update" ON brands FOR UPDATE USING (true);
-CREATE POLICY "Allow Public Update" ON models FOR UPDATE USING (true);
-CREATE POLICY "Allow Public Update" ON geometries FOR UPDATE USING (true);
-CREATE POLICY "Allow Public Update" ON builds FOR UPDATE USING (true);
+-- Opcional: Permitir a usuarios anónimos proponer contribuciones (siempre con estado PENDING)
+DROP POLICY IF EXISTS "Allow Public Contribution Submission" ON contributions;
+CREATE POLICY "Allow Public Contribution Submission" ON contributions
+FOR INSERT TO public WITH CHECK (status = 'PENDING');
 
--- 3. STORAGE POLICIES (Allow uploads to bike-images)
+-- 3. STORAGE POLICIES
 INSERT INTO storage.buckets (id, name, public) 
 VALUES ('bike-images', 'bike-images', true)
 ON CONFLICT (id) DO UPDATE SET public = true;
 
-DROP POLICY IF EXISTS "Allow Public Uploads" ON storage.objects;
-CREATE POLICY "Allow Public Uploads" 
-ON storage.objects FOR INSERT 
-TO public 
-WITH CHECK (bucket_id = 'bike-images');
-
-DROP POLICY IF EXISTS "Allow Public Update" ON storage.objects;
-CREATE POLICY "Allow Public Update" 
-ON storage.objects FOR UPDATE 
-TO public 
-USING (bucket_id = 'bike-images');
-
+-- Lectura pública de imágenes
 DROP POLICY IF EXISTS "Allow Public Select" ON storage.objects;
 CREATE POLICY "Allow Public Select" 
 ON storage.objects FOR SELECT 
 TO public 
 USING (bucket_id = 'bike-images');
+
+-- Eliminamos uploads públicos arbitrarios con la clave anónima.
+-- Las subidas de imágenes de scrapers deben usar la service_role key.
+DROP POLICY IF EXISTS "Allow Public Uploads" ON storage.objects;
+DROP POLICY IF EXISTS "Allow Public Update" ON storage.objects;
 
 -- 4. Create the Main View for the App
 -- Esta vista agrega los datos relacionales en el formato JSON que espera el modelo Swift

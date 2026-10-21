@@ -1,10 +1,12 @@
 import json
+import os
 import requests
 
-# CONFIGURATION
-SUPABASE_URL = "https://tvzfyptiouihtitlapcv.supabase.co"
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR2emZ5cHRpb3VpaHRpdGxhcGN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2OTI3NTAsImV4cCI6MjA4OTI2ODc1MH0.f-WZVWNaXYOcyIHm8XrI8ZXFzeAhGm1Oyl2-k_Dv79g"
-JSON_PATH = "../Resources/bikes.json"
+# CONFIGURATION (Loaded from environment variables, fallback to defaults)
+SUPABASE_URL = os.getenv("SUPABASE_URL", "https://tvzfyptiouihtitlapcv.supabase.co")
+# Para escritura en base de datos con RLS activo se requiere SUPABASE_SERVICE_ROLE_KEY
+SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY") or os.getenv("SUPABASE_KEY", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR2emZ5cHRpb3VpaHRpdGxhcGN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2OTI3NTAsImV4cCI6MjA4OTI2ODc1MH0.f-WZVWNaXYOcyIHm8XrI8ZXFzeAhGm1Oyl2-k_Dv79g")
+JSON_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Resources", "bikes.json")
 
 HEADERS = {
     "apikey": SUPABASE_KEY,
@@ -29,14 +31,18 @@ def migrate():
         
         # If return=representation doesn't return anything (e.g. no change), 
         # we fetch it to get the ID.
-        if res.status_code == 201 or (res.status_code == 200 and res.json()):
+        if (res.status_code in [200, 201]) and res.json():
             brand_id = res.json()[0]['id']
         else:
             # Fallback fetch
             res = requests.get(f"{SUPABASE_URL}/rest/v1/brands", 
                              headers=HEADERS, 
                              params={"name": f"eq.{bike['brand']}"})
-            brand_id = res.json()[0]['id']
+            data = res.json()
+            if not data:
+                print(f"  ❌ Error: No se pudo obtener brand_id para {bike['brand']}")
+                continue
+            brand_id = data[0]['id']
         
         # 2. Upsert Model
         model_data = {
@@ -51,7 +57,7 @@ def migrate():
                           json=model_data,
                           params={"on_conflict": "brand_id,name,year"})
         
-        if res.status_code == 201 or (res.status_code == 200 and res.json()):
+        if (res.status_code in [200, 201]) and res.json():
             model_id = res.json()[0]['id']
         else:
             # Fallback fetch
@@ -62,7 +68,11 @@ def migrate():
                                  "name": f"eq.{bike['model']}",
                                  "year": f"eq.{bike['year']}"
                              })
-            model_id = res.json()[0]['id']
+            data = res.json()
+            if not data:
+                print(f"  ❌ Error: No se pudo obtener model_id para {bike['model']}")
+                continue
+            model_id = data[0]['id']
         
         # 3. Geometries
         for geo in bike['geometry']:
