@@ -17,19 +17,22 @@ Esta guía detalla el funcionamiento de las características de **Biked** y la o
 5. Observa la previsualización de tu **Geometría Estimada** en tiempo real.
 6. Pulsa **"Buscar Bicicletas"**: el motor calculará las tallas con menor distancia euclidiana respecto a tu diana morfológica.
 
-### Prescripción Biomecánica y Diagnóstico
+### Prescripción Biomecánica y Tarjeta Social
 1. Al pulsar sobre cualquier bicicleta recomendada, verás la tarjeta de **Diagnóstico de Ajuste Biomecánico**:
    - **Porcentaje de Compatibilidad**: Ajuste *Óptimo* ($\le 8\text{ mm}$), *Compatible* ($\le 20\text{ mm}$) o *Ajuste Exigente* ($> 20\text{ mm}$).
    - **Configuración de Cockpit**: Cantidad de espaciadores sugerida (en múltiplos de 5mm) y longitud recomendada de potencia.
    - **Ratio STR**: Categorización de agresividad del cuadro.
-2. Pulsa en **"Compartir Prescripción Biomecánica"** para generar un informe formateado y enviarlo a tu biomecánico o guardarlo en Notas.
+2. Tienes dos opciones de compartición:
+   - 📲 **"Exportar Tarjeta Historia (IG / WhatsApp)"**: Renderiza una tarjeta vertical en alta resolución (1080x1920) con fondo de carbono stealth, acentos de neón, foto de estudio recortada y radar de métricas, lista para publicar en tus historias de Instagram o enviar por WhatsApp.
+   - 📋 **"Compartir Resumen en Texto"**: Genera un informe detallado en texto plano para biomecánicos o apps de mensajería.
 
-### Comparador de Geometría Cara a Cara
+### Comparador de Geometría Cara a Cara y Visualizador Vectorial CAD
 1. Desde la vista de detalle de cualquier bicicleta o desde la pestaña **Favoritos** (con al menos 2 bicicletas guardadas), pulsa **"Comparar"**.
 2. Selecciona los dos modelos y tallas que desees contrastar.
-3. El comparador mostrará:
-   - **Veredicto Geométrico**: Resumen en lenguaje natural indicando cuál es más erguida, más baja, más alargada o más compacta.
-   - **Tabla Diferencial**: Comparativa numérica con indicadores en color para $\Delta\text{Stack}$, $\Delta\text{Reach}$, ratio STR y disciplina.
+3. Elige entre los modos de visualización:
+   - **Todo**: Resumen general y tabla.
+   - **Diagrama (CAD Vectorial)**: Superpone los esquemas de ambos cuadros con pedalier alineado en el origen $(0,0)$. El cuadro A en Cian Neón y el cuadro B en Magenta Neón muestran visualmente la variación de Stack y Reach con líneas de cota $\Delta$.
+   - **Tabla**: Comparativa numérica con deltas milimétricos en verde, cian o naranja.
 
 ### Alternancia de Unidades (Métrico / Imperial)
 1. Toca el icono de engranaje en la barra superior de **Buscar**.

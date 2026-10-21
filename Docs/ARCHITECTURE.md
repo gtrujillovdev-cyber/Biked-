@@ -56,9 +56,10 @@ flowchart TD
 ### Patrón Arquitectónico: MVVM Reactivo Concurrente
 - **Views**: Interfaces SwiftUI optimizadas con feedback háptico (`Haptics`), animaciones con interpolación de resortes (`.spring()`) y soporte para accesibilidad.
   - `SearchView`: Núcleo de cálculo biomecánico, filtrado por disciplina y prescripción de talla.
-  - `ExploreView`: Feed con recarga interactiva (*pull-to-refresh*), filtrado categorizado e indicadores de novedad.
-  - `CompareBikesView`: Comparador cara a cara de modelos y tallas con cálculo automático de diferencias verticales y horizontales.
-  - `BikeDetailView`: Ficha técnica completa con informe de diagnóstico postural, opciones de montaje y botón para compartir prescripción.
+  - `ExploreView`: Feed con buscador en tiempo real, carrusel de filtros por marca, ordenación multicriterio (STR, Precio, Año, Nombre) y tarjetas de estudio.
+  - `CompareBikesView`: Comparador cara a cara de modelos y tallas con visualizador CAD `GeometryWireframeView` (superposición de cuadros con origen común en el pedalier $(0,0)$ y vectores $\Delta S$, $\Delta R$).
+  - `BikeDetailView`: Ficha técnica completa con informe de diagnóstico postural, enlace oficial del fabricante y exportador de Tarjeta Historia en alta resolución para Instagram/WhatsApp (`FitStoryRenderer`).
+  - `FitStoryCardView`: Lienzo de exportación con formato de historia 9:16 renderizado a escala Retina 3.0x (1080x1920) mediante SwiftUI `ImageRenderer`.
 - **ViewModels (`@MainActor` + `@Observable`)**:
   - `SearchViewModel`: Gestiona las variables de entrada métricas/imperiales, el motor de regresión postural y el filtrado por distancia euclidiana.
   - `FavoritesViewModel`: Maneja la persistencia de favoritos con SwiftData (`FavoriteBike`), asegurando que todas las operaciones sobre `ModelContext` ocurran estrictamente en el hilo principal.

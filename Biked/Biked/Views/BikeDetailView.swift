@@ -11,6 +11,8 @@ struct BikeDetailView: View {
     @State private var selectedBuild: BikeBuild?
     @State private var showCompareSheet = false
     @State private var allBikesCache: [Bike] = []
+    @State private var renderedStoryImage: UIImage?
+    @State private var showStoryShareSheet = false
     
     var body: some View {
         ZStack {
@@ -138,27 +140,63 @@ struct BikeDetailView: View {
                                 
                                 FitReportCardView(result: result, posture: postureName)
                                 
-                                // Share Sheet Button
-                                ShareLink(
-                                    item: "🚴 Prescripción Biomecánica Biked:\n\nModelo: \(bike.brand) \(bike.model)\nTalla Óptima: \(result.matchedSize)\nCompatibilidad: \(Int(result.confidenceScore))% (\(result.fitStatus.rawValue))\n\n• Stack Cuadro: \(Int(result.matchedGeometry.stack))mm (Tu diana: \(Int(result.userStack))mm)\n• Reach Cuadro: \(Int(result.matchedGeometry.reach))mm (Tu diana: \(Int(result.userReach))mm)\n• Espaciadores recomendados: ~\(result.recommendedSpacersMm)mm\n• Potencia sugerida: \(result.recommendedStemLengthMm)mm\n\n\(result.fitSummary)\n\nGenerado con Biked App."
-                                ) {
-                                    HStack {
-                                        Image(systemName: "square.and.arrow.up")
-                                        Text("Compartir Prescripción Biomecánica")
-                                            .font(AppTheme.Fonts.subheadline)
-                                            .fontWeight(.bold)
+                                // Share Actions (Story Card + Text Summary)
+                                VStack(spacing: 10) {
+                                    // 1. Instagram / WhatsApp Story Card Export
+                                    Button(action: {
+                                        Haptics.impact(style: .medium)
+                                        if let image = FitStoryRenderer.renderImage(result: result, posture: postureName) {
+                                            renderedStoryImage = image
+                                            showStoryShareSheet = true
+                                        }
+                                    }) {
+                                        HStack(spacing: 8) {
+                                            Image(systemName: "sparkles.rectangle.stack.fill")
+                                                .font(.system(size: 15))
+                                            Text("Exportar Tarjeta Historia (IG / WhatsApp)")
+                                                .font(AppTheme.Fonts.subheadline)
+                                                .fontWeight(.bold)
+                                        }
+                                        .padding(.vertical, 13)
+                                        .frame(maxWidth: .infinity)
+                                        .background(
+                                            LinearGradient(
+                                                colors: [
+                                                    AppTheme.Colors.accent,
+                                                    Color(red: 0.10, green: 0.65, blue: 0.95)
+                                                ],
+                                                startPoint: .leading,
+                                                endPoint: .trailing
+                                            )
+                                        )
+                                        .foregroundColor(.black)
+                                        .cornerRadius(14)
+                                        .shadow(color: AppTheme.Colors.accent.opacity(0.3), radius: 8, y: 3)
                                     }
-                                    .padding(.vertical, 12)
-                                    .frame(maxWidth: .infinity)
-                                    .background(AppTheme.Colors.accent.opacity(0.15))
-                                    .foregroundColor(AppTheme.Colors.accent)
-                                    .cornerRadius(14)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 14)
-                                            .stroke(AppTheme.Colors.accent.opacity(0.4), lineWidth: 1)
-                                    )
+                                    .buttonStyle(PremiumScaleButtonStyle())
+                                    
+                                    // 2. Text Summary Share Sheet Button
+                                    ShareLink(
+                                        item: "🚴 Prescripción Biomecánica Biked:\n\nModelo: \(bike.brand) \(bike.model)\nTalla Óptima: \(result.matchedSize)\nCompatibilidad: \(Int(result.confidenceScore))% (\(result.fitStatus.rawValue))\n\n• Stack Cuadro: \(Int(result.matchedGeometry.stack))mm (Tu diana: \(Int(result.userStack))mm)\n• Reach Cuadro: \(Int(result.matchedGeometry.reach))mm (Tu diana: \(Int(result.userReach))mm)\n• Espaciadores recomendados: ~\(result.recommendedSpacersMm)mm\n• Potencia sugerida: \(result.recommendedStemLengthMm)mm\n\n\(result.fitSummary)\n\nGenerado con Biked App."
+                                    ) {
+                                        HStack(spacing: 8) {
+                                            Image(systemName: "square.and.arrow.up")
+                                            Text("Compartir Resumen en Texto")
+                                                .font(AppTheme.Fonts.subheadline)
+                                                .fontWeight(.semibold)
+                                        }
+                                        .padding(.vertical, 11)
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.white.opacity(0.06))
+                                        .foregroundColor(.white.opacity(0.85))
+                                        .cornerRadius(14)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 14)
+                                                .stroke(Color.white.opacity(0.15), lineWidth: 1)
+                                        )
+                                    }
+                                    .buttonStyle(PremiumScaleButtonStyle())
                                 }
-                                .buttonStyle(PremiumScaleButtonStyle())
                             }
                             .padding(.top, 6)
                         }
@@ -317,6 +355,11 @@ struct BikeDetailView: View {
         .onAppear {
             if selectedBuild == nil {
                 selectedBuild = bike.builds.first
+            }
+        }
+        .sheet(isPresented: $showStoryShareSheet) {
+            if let image = renderedStoryImage {
+                ActivityView(activityItems: [image])
             }
         }
     }

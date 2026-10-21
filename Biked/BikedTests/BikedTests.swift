@@ -24,6 +24,7 @@ struct BikedTestRunner {
         testBiomechanicalFormulas()
         testCockpitPrescription()
         testBikesJSONIntegrity()
+        testBikeImagesCoverage()
         
         print("\n==========================================")
         print("RESULTADOS FINALES:")
@@ -144,6 +145,41 @@ struct BikedTestRunner {
         
         assert(validModels == jsonArray.count, "El 100% de los modelos deben tener marca, modelo y geometrías válidas")
         assert(totalGeometries >= 150, "Debe haber al menos 150 tallas registradas en total (actual: \(totalGeometries))")
+    }
+    
+    static func testBikeImagesCoverage() {
+        print("\n▶ Test 6: Integridad de Activos Visuales (100% Cobertura de Imágenes de Estudio)")
+        let scriptPath = URL(fileURLWithPath: #file)
+        let rootDir = scriptPath.deletingLastPathComponent().deletingLastPathComponent()
+        let jsonUrl = rootDir.appendingPathComponent("Biked/Resources/bikes.json")
+        let imagesDir = rootDir.appendingPathComponent("Biked/Resources/BikeImages")
+        
+        guard let data = try? Data(contentsOf: jsonUrl),
+              let jsonArray = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]] else {
+            assert(false, "No se pudo leer bikes.json")
+            return
+        }
+        
+        var existingCount = 0
+        var missingBikes: [String] = []
+        
+        for item in jsonArray {
+            guard let bikeId = item["id"] as? String else { continue }
+            let imgUrl = imagesDir.appendingPathComponent("\(bikeId).png")
+            if FileManager.default.fileExists(atPath: imgUrl.path) {
+                if let attrs = try? FileManager.default.attributesOfItem(atPath: imgUrl.path),
+                   let size = attrs[.size] as? UInt64, size > 15000 {
+                    existingCount += 1
+                } else {
+                    missingBikes.append("\(bikeId) (tamaño inválido)")
+                }
+            } else {
+                missingBikes.append(bikeId)
+            }
+        }
+        
+        assert(missingBikes.isEmpty, "Faltan imágenes para \(missingBikes.count) bicis: \(missingBikes.joined(separator: ", "))")
+        assert(existingCount == jsonArray.count, "El 100% de los modelos (\(existingCount)/\(jsonArray.count)) deben tener imagen PNG de estudio en BikeImages/")
     }
 }
 
