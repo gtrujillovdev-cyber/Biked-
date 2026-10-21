@@ -203,6 +203,12 @@ struct SearchView: View {
                                 Text(system.rawValue).tag(system)
                             }
                         }
+                        
+                        Picker("Apariencia", selection: Bindable(settings).appearance) {
+                            ForEach(AppSettings.AppAppearance.allCases) { app in
+                                Text(app.rawValue).tag(app)
+                            }
+                        }
                     } label: {
                         Image(systemName: "gearshape")
                             .foregroundColor(.white)

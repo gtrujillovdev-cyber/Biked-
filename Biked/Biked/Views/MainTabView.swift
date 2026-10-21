@@ -28,6 +28,6 @@ struct MainTabView: View {
         .environment(favoritesViewModel)
         .environment(appSettings)
         .tint(AppTheme.Colors.primary)
-        .preferredColorScheme(.dark) // Enforce Dark Mode for Premium Feel
+        .preferredColorScheme(appSettings.appearance.colorScheme)
     }
 }

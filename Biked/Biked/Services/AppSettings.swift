@@ -26,9 +26,31 @@ class AppSettings {
         }
     }
     
+    enum AppAppearance: String, CaseIterable, Identifiable {
+        case dark = "Oscuro"
+        case light = "Claro"
+        case system = "Sistema"
+        
+        var id: String { self.rawValue }
+        
+        var colorScheme: ColorScheme? {
+            switch self {
+            case .dark: return .dark
+            case .light: return .light
+            case .system: return nil
+            }
+        }
+    }
+    
     var unitSystem: UnitSystem = .metric {
         didSet {
             UserDefaults.standard.set(unitSystem.rawValue, forKey: "unitSystem")
+        }
+    }
+    
+    var appearance: AppAppearance = .dark {
+        didSet {
+            UserDefaults.standard.set(appearance.rawValue, forKey: "appAppearance")
         }
     }
     
@@ -36,6 +58,10 @@ class AppSettings {
         if let stored = UserDefaults.standard.string(forKey: "unitSystem"),
            let system = UnitSystem(rawValue: stored) {
             self.unitSystem = system
+        }
+        if let storedAppearance = UserDefaults.standard.string(forKey: "appAppearance"),
+           let app = AppAppearance(rawValue: storedAppearance) {
+            self.appearance = app
         }
     }
     

@@ -43,12 +43,13 @@ struct Bike: Identifiable, Codable, Hashable {
     
     // Computed helper to get a representative image (first build, first image)
     var mainImage: URL? {
-        if let url = builds.first?.images.first, let resolved = resolveImageURL(url) {
-            return resolved
-        }
-        // Fallback: Check if an asset exists in Bundle matching bike.id (e.g. "trek-madone-slr.png")
+        // 1. Direct local bundle asset check matching bike.id (e.g. "wilier-filante.png")
         if let localURL = Bundle.main.url(forResource: id, withExtension: "png") {
             return localURL
+        }
+        // 2. First build image resolved
+        if let url = builds.first?.images.first, let resolved = resolveImageURL(url) {
+            return resolved
         }
         return nil
     }
@@ -68,29 +69,29 @@ struct Bike: Identifiable, Codable, Hashable {
             return localURL
         }
         
-        // 2. If it's a full remote URL (GitHub or other), return as is
-        // (Ensuring it's not a relative URL mistaken for a full one)
+        // 2. In offline / local development mode, avoid remote network requests
+        guard BikeAPIService.isCloudSyncEnabled else {
+            return nil
+        }
+        
+        // 3. If it's a full remote URL (GitHub or other), return as is
         if url.scheme?.hasPrefix("http") == true {
             return url
         }
         
-        // 3. Fallback: Reconstruct Supabase Public Storage URL
-        // Used for paths coming from the database that might not have the full domain
+        // 4. Fallback: Reconstruct Supabase Public Storage URL
         let publicStorageBase = SupabaseConfig.storageBaseURL.absoluteString
         
-        // If the URL string itself already contains 'bike-images', we might just need the base domain
         let urlString = url.absoluteString
         if urlString.contains("bike-images") {
             if urlString.starts(with: "http") {
                 return url
             } else {
-                // Prepend base if it's just the path
                 let path = urlString.components(separatedBy: "bike-images/").last ?? filename
                 return URL(string: publicStorageBase + path)
             }
         }
         
-        // Default Supabase attempt
         return URL(string: publicStorageBase + filename)
     }
     

@@ -3,6 +3,11 @@ import Foundation
 actor BikeAPIService {
     static let shared = BikeAPIService()
     
+    // Offline / Local-First Development Switch
+    // Set to false to work 100% locally with bundled JSON and local images at 0ms latency.
+    // Set to true when ready to sync with Supabase in production.
+    static var isCloudSyncEnabled: Bool = false
+    
     // In-memory cache for instant navigation and UI responsiveness
     private var cachedBikes: [Bike] = []
     private var hasAttemptedCloudSync = false
@@ -25,8 +30,8 @@ actor BikeAPIService {
             }
         }
         
-        // 3. Attempt cloud sync (Supabase) with a strict timeout if not already attempted or force refreshed
-        if !hasAttemptedCloudSync || forceRefresh {
+        // 3. Attempt cloud sync (Supabase) with a strict timeout only if cloud sync is enabled
+        if Self.isCloudSyncEnabled && (!hasAttemptedCloudSync || forceRefresh) {
             hasAttemptedCloudSync = true
             do {
                 let cloudBikes = try await withTimeout(seconds: 3.0) {
